@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>Find the Cat</h2>
+    <div class="underlay"></div>
+    <div class="all-hiding-places">
+        <div class="hiding-place" *ngFor="let hp of hidingPlace; let i=index">
+            <div class="underneath"></div>          
+            <div class="on-top"
+                (click)="checkGuess(i)"
+                [ngClass]="{'reveal': catFound
+                                      && hidingPlace[i] == catLocation}"> {{hp}}
+            </div>
+        </div>       
+    </div>
+    
+    <p>number to guess {{catLocation}}</p>
+</div>
