@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component';
-import { CatGameComponent } from './cat-game/cat-game.component';
-import { PractiseAnimationsComponent } from './practise-animations/practise-animations.component';
+import { CatGame2Component } from './cat-game2/cat-game2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatGameComponent,
-    PractiseAnimationsComponent
+    CatGame2Component
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
