@@ -30,23 +30,17 @@ interface HidingPlace {
 export class CatGame2Component implements OnInit {
 
     constructor() { }
-
   
     hidingPlace = new Array<HidingPlace>(36);
     catLocation: number = 0;
     userGuess: string|number = 0;
     catFound: boolean =false;
     controlState='hiding';
-   
+    guessCount: number = 0;
+    gridDisabled: boolean = true;
 
     ngOnInit(): void {
-        for (let i=0; i<36; i++ ) {
-            this.hidingPlace[i] = {
-                value: i+1,
-                revealState: 'hiding'
-            }
-        }
-
+        this.initialiseGrid();
         this.newCatLocation();
         console.log(this.hidingPlace);
     }
@@ -57,14 +51,32 @@ export class CatGame2Component implements OnInit {
     }
 
     checkGuess(guessLoc: number) {  
-        
+        this.guessCount++;
         if (this.catLocation===this.hidingPlace[guessLoc].value) {
-           alert("cat found!!");
             this.catFound=true;   
             this.hidingPlace[guessLoc].revealState='revealed';        
             this.hidingPlace[guessLoc].value='';
+            this.gridDisabled=true;
         } else {
             this.hidingPlace[guessLoc].value="No!";
+        }
+    }
+
+    startGame() {
+        this.gridDisabled=false;
+    }
+
+    tryAgain() {
+        this.guessCount=0;
+        this.initialiseGrid();
+    }
+
+    initialiseGrid() {
+        for (let i=0; i<36; i++ ) {
+            this.hidingPlace[i] = {
+                value: i+1,
+                revealState: 'hiding'
+            }
         }
     }
 

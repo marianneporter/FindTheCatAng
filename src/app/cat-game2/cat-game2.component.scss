@@ -1,27 +1,97 @@
-$hidingPlaceHeight: 7rem;
+$hidingPlaceDimension: 4.5rem;
+$contentWidth: 45rem;
+$controlHeight: 3rem;
 
+%btn {
+    display: inline-block;
+    border-radius: 0.5rem;
+    height: $controlHeight;
+    width: 7.5rem; 
+    text-decoration: none;
+ 
+    &:hover {
+        transform: scale(.98);
+    }      
+}
+
+
+
+.primary-btn {
+    @extend %btn;
+    color: white;
+    background-color: #4CBB17;
+    font-weight: 600;
+}
+
+.secondary-btn {
+    @extend %btn;
+    color: white;   
+    background-color: #ff4040;
+    font-weight: 600;
+}
+
+.grid-disabled {
+    pointer-events: none;
+}
+
+.outer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+}
+
+.main-content {
+    width: $contentWidth;
+    height: inherit;
+    margin-top: 1rem; 
+}
+
+.game-controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  
+    font-size: 1.2rem;
+}
+
+.game-monitor {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: $controlHeight;
+    width: 10rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+
+    .info {
+        font-weight: 600;
+    }
+}
 
 .container {
-    height: 50rem;
-    width: 60rem;
-    margin: 0 auto;
+    height: 40rem;
+    width: 50rem;    
+}
+
+h2 {
+    color: white; 
+    font-size: 2rem;
+    text-shadow: 2px 2px red;
 }
 
 .all-hiding-places {
  
     display: grid;
-    grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
   
-    height: 40rem;
-    width: 45rem;
-    margin: 0 auto;
+    height: $hidingPlaceDimension * 6;
+    width:  $hidingPlaceDimension * 6;
+    margin: 1.5rem auto 0 auto;
 
-    .test {
-        font-size: 10px;
-    }
 
     .hiding-place {
-        height: $hidingPlaceHeight;
+        height: $hidingPlaceDimension;
         width: 100%;
         background: orange;
         border: 0.1rem solid black; 
@@ -29,13 +99,13 @@ $hidingPlaceHeight: 7rem;
         background-size: cover;  
    
        .on-top {
-           height: $hidingPlaceHeight;
-           max-height: $hidingPlaceHeight;     
+           height: $hidingPlaceDimension;
+           max-height: $hidingPlaceDimension;     
            display: flex;
            align-items: center;
            justify-content: center;
            font-size: 2rem;   
-           background-color: pink;      
+           background-color: white;      
        }
 
     }
