@@ -1,5 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { Timing } from '../_models/timer';
+import { TimerService } from '../_services/timer.service';
 
 interface HidingPlace {
     value: string|number;
@@ -29,7 +31,7 @@ interface HidingPlace {
 })
 export class CatGame2Component implements OnInit {
 
-    constructor() { }
+    constructor(public timer: TimerService) { }
   
     hidingPlace = new Array<HidingPlace>(36);
     catLocation: number = 0;
@@ -38,6 +40,11 @@ export class CatGame2Component implements OnInit {
     controlState='hiding';
     guessCount: number = 0;
     gridDisabled: boolean = true;
+
+    get timing(): Timing {
+        return this.timer.timing;
+    }
+
 
     ngOnInit(): void {
         this.initialiseGrid();
@@ -53,6 +60,7 @@ export class CatGame2Component implements OnInit {
     checkGuess(guessLoc: number) {  
         this.guessCount++;
         if (this.catLocation===this.hidingPlace[guessLoc].value) {
+            this.timer.stopTimer();
             this.catFound=true;   
             this.hidingPlace[guessLoc].revealState='revealed';        
             this.hidingPlace[guessLoc].value='';
@@ -64,10 +72,12 @@ export class CatGame2Component implements OnInit {
 
     startGame() {
         this.gridDisabled=false;
+        this.timer.startTimer();
     }
 
-    tryAgain() {
+    reset() {
         this.guessCount=0;
+        this.timer.resetTimer();
         this.initialiseGrid();
     }
 
