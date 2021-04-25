@@ -1,4 +1,4 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Timing } from '../_models/timer';
 import { TimerService } from '../_services/timer.service';
@@ -26,7 +26,28 @@ interface HidingPlace {
       transition('revealed => hiding', [
         animate('1s ease-in')
       ])               
-    ])
+    ]),
+    trigger('dropStatus', [
+        state('hiding', style ({
+            top: '-15rem',
+            left: '25rem'        
+        })),
+        state('dropped', style ({          
+            top: '0',
+            left: '25rem'        
+        })), 
+        transition('hiding => dropped', [
+            animate('2s ease', keyframes([
+              style({ top: '-15rem', offset: 0 }),
+              style({ top: '0rem', offset: 0.50 }),
+              style({ top: '-2rem', offset: 0.75 }),
+              style({ top: '0rem', offset: 1 })
+            ]))
+        ]),  
+        transition('dropped => hiding', [
+            animate('2s ease')
+        ])  
+    ]),     
 ]
 })
 export class CatGame2Component implements OnInit {
@@ -36,11 +57,12 @@ export class CatGame2Component implements OnInit {
     hidingPlace = new Array<HidingPlace>(36);
     catLocation: number = 0;
     userGuess: string|number = 0;
-    catFound: boolean =false;
-    controlState='hiding';
+    catFound: boolean =false;   
     guessCount: number = 0;
     gridDisabled: boolean = true;
     startDisabled: boolean = false;
+
+    dropStatus='hiding';
 
     bestScore: number = 0;
     bestTime: number = 0;
@@ -72,11 +94,15 @@ export class CatGame2Component implements OnInit {
             this.hidingPlace[guessLoc].revealState='revealed';        
             this.hidingPlace[guessLoc].value='';
             this.gridDisabled=true;
+           
+
             if (this.bestScore === 0 ||
                      this.guessCount < this.bestScore) {
                 this.bestScore = this.guessCount;
             }
             this.timer.checkIfBestTime();
+            this.dropStatus="dropped"
+
         } else {
             this.hidingPlace[guessLoc].value="No!";
         }

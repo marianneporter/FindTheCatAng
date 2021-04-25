@@ -1,6 +1,8 @@
 $hidingPlaceDimension: 4.5rem;
 $contentWidth: 45rem;
 $controlHeight: 3rem;
+$dropdownHeight: 10rem;
+$dropdownTextHeight: 7rem;
 
 %btn {
     display: inline-block;
@@ -54,18 +56,7 @@ $controlHeight: 3rem;
     height: 100vh;
 }
 
-.main-content {
-    width: $contentWidth;
-    height: inherit;
-    margin-top: 1rem; 
-}
 
-.game-controls {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;  
-    font-size: 1.2rem;
-}
 
 .game-monitor {
     @extend %monitor;
@@ -77,17 +68,30 @@ $controlHeight: 3rem;
     width: 50rem;    
 }
 
-h2 {
-    color: white; 
-    font-size: 2rem;
-    text-shadow: 2px 2px red;
-}
-
 h4 {
     color: white; 
     font-size: 1.75rem;
     text-shadow: 2px 2px red;
 }
+
+.title-and-controls {
+
+    h2 {
+        color: white; 
+        font-size: 2rem;
+        text-shadow: 2px 2px red;
+        margin-bottom: 1rem;
+    }
+
+    .game-controls {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;  
+        font-size: 1.2rem;
+    }    
+}
+
+
 
 
 .all-hiding-places {
@@ -141,3 +145,28 @@ h4 {
         @extend %monitor;
     }
 }
+
+.dropdown {    
+    position: absolute;    
+    left: 25rem;  
+    top: (-$dropdownHeight);
+    background-color: transparent;
+    height: $dropdownHeight;
+    width: 60rem;
+    font-size: 1.2rem; 
+    border-right: 0.4rem solid white;
+    border-left: 0.4rem solid white;     
+    
+    .dropdown-hanger {
+        height: $dropdownHeight - $dropdownTextHeight;
+    }
+
+    .dropdown-text {
+        background-color: orange;
+        color: white;
+        height: $dropdownTextHeight;   
+        padding: 0.5rem;  
+        border-bottom: 0.4rem solid white;
+    }
+}
+

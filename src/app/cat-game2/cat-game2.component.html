@@ -1,8 +1,17 @@
+<div class="dropdown"
+      [@dropStatus]="dropStatus">             
+    <div class="dropdown-hanger"></div>
+    <div class="dropdown-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis similique c
+            ommodi sed praesentium, minima architecto repellendus laborum ipsum placeat       
+    </div> 
+</div>
+
 <div class="outer-container">
     <div class="container">
-        <h2>Find the Cat</h2>
-        <div class="main-content">
-            <div class="game-controls">
+        <div class="title-and-controls">
+            <h2>Find the Cat</h2>
+            <div class="game-controls">                
                 <div class="count game-monitor">
                     <div class="label">
                         Guesses
@@ -29,6 +38,8 @@
                             (click)="reset()">Reset</button>
                 </div>
             </div>
+        </div>
+  
             <div class="all-hiding-places">
                 <div class="hiding-place" *ngFor="let hp of hidingPlace; let i=index">
                     <div class="on-top"
@@ -62,6 +73,6 @@
                     </div>      
                 </div>                   
             </div> 
-        </div>  
+        
     </div> 
 </div>
