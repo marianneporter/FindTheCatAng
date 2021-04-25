@@ -40,11 +40,18 @@ export class CatGame2Component implements OnInit {
     controlState='hiding';
     guessCount: number = 0;
     gridDisabled: boolean = true;
+    startDisabled: boolean = false;
+
+    bestScore: number = 0;
+    bestTime: number = 0;
 
     get timing(): Timing {
         return this.timer.timing;
     }
 
+    get bestTiming(): Timing {
+        return this.timer.bestTime;
+    }
 
     ngOnInit(): void {
         this.initialiseGrid();
@@ -65,6 +72,11 @@ export class CatGame2Component implements OnInit {
             this.hidingPlace[guessLoc].revealState='revealed';        
             this.hidingPlace[guessLoc].value='';
             this.gridDisabled=true;
+            if (this.bestScore === 0 ||
+                     this.guessCount < this.bestScore) {
+                this.bestScore = this.guessCount;
+            }
+            this.timer.checkIfBestTime();
         } else {
             this.hidingPlace[guessLoc].value="No!";
         }
@@ -72,13 +84,16 @@ export class CatGame2Component implements OnInit {
 
     startGame() {
         this.gridDisabled=false;
+        this.startDisabled=true;
         this.timer.startTimer();
     }
 
     reset() {
         this.guessCount=0;
+        this.timer.stopTimer();
         this.timer.resetTimer();
         this.initialiseGrid();
+        this.startDisabled=false;
     }
 
     initialiseGrid() {

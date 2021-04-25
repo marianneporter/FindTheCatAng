@@ -13,6 +13,13 @@ export class TimerService {
         tenths: 0
     }
 
+    bestTime: Timing = {
+        totalTimeTenths: 0,
+        minutes: 0,
+        seconds: 0,
+        tenths: 0        
+    }
+
     timer: any;
 
     constructor() { }
@@ -44,6 +51,13 @@ export class TimerService {
         this.timing.tenths=0;
         this.timing.minutes=0;
         this.timing.seconds=0;
+    }
+
+    checkIfBestTime() {
+        if ( this.bestTime.totalTimeTenths === 0
+            || this.timing.totalTimeTenths < this.bestTime.totalTimeTenths) {
+                this.bestTime = { ...this.timing };
+            }
     }
 
 

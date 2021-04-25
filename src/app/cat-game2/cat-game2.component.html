@@ -13,17 +13,16 @@
                 </div>
                 <div class="timer game-monitor">
                     <div class="label">
-                        Time 
+                        Time
                     </div>
-                    <div class="info">
-                        {{timing.minutes | number: '2.0' }}:
-                        {{timing.seconds | number: '2.0' }}:
-                        {{timing.tenths | number: '2.0' }}
+                    <div class="info">                      
+                        {{timing.seconds | number: '2.0'}}:{{timing.tenths | number: '2.0' }}
                     </div>
                 </div>
                 <div class="start"
                     (click)="startGame()">
-                    <button class="primary-btn">Start</button>
+                    <button class="primary-btn"
+                            [disabled]="startDisabled">Start</button>
                 </div>
                 <div class="try-again">
                     <button class="secondary-btn"
@@ -39,7 +38,30 @@
                         {{hidingPlace[i].value}} 
                     </div>            
                 </div>       
-            </div>    
+            </div>  
+            <div class="best-scores">
+                <h4>Best Score</h4>
+                <div class="best-attempts">
+                    <div class="best-monitor">
+                        <div class="label">
+                            Guesses
+                        </div>
+                        <div class="info">
+                            {{bestScore}}
+                        </div>
+                    </div>    
+                    <div class="best-monitor">
+                        <div class="label">
+                            Time
+                        </div>
+                        <div class="info">
+                            {{ bestTiming.seconds | number: '2.0' }}:{{ bestTiming.tenths | number: '2.0' }}
+                           
+                        </div>
+                      
+                    </div>      
+                </div>                   
+            </div> 
         </div>  
     </div> 
 </div>
