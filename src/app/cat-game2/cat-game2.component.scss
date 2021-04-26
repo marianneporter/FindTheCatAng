@@ -1,16 +1,17 @@
 $hidingPlaceDimension: 4.5rem;
 $contentWidth: 45rem;
 $controlHeight: 3rem;
-$dropdownHeight: 10rem;
-$dropdownTextHeight: 7rem;
+$dropdownHeight: 15rem;
+$dropdownTextHeight: 10rem;
 
 %btn {
     display: inline-block;
     border-radius: 0.5rem;
     height: $controlHeight;
     width: 7.5rem; 
+    font-size: 1.3rem;
     text-decoration: none;
- 
+    font-weight: 600;
     &:hover {
         transform: scale(.98);
     }      
@@ -35,14 +36,15 @@ $dropdownTextHeight: 7rem;
     @extend %btn;
     color: white;
     background-color: #4CBB17;
-    font-weight: 600;
+  
 }
 
-.secondary-btn {
+.reset-btn {
     @extend %btn;
     color: white;   
     background-color: #ff4040;
-    font-weight: 600;
+    font-size: 1rem;
+  
 }
 
 .grid-disabled {
@@ -90,8 +92,6 @@ h4 {
         font-size: 1.2rem;
     }    
 }
-
-
 
 
 .all-hiding-places {
@@ -153,7 +153,7 @@ h4 {
     background-color: transparent;
     height: $dropdownHeight;
     width: 60rem;
-    font-size: 1.2rem; 
+    font-size: 1.5rem; 
     border-right: 0.4rem solid white;
     border-left: 0.4rem solid white;     
     
@@ -161,12 +161,51 @@ h4 {
         height: $dropdownHeight - $dropdownTextHeight;
     }
 
-    .dropdown-text {
-        background-color: orange;
+    .dropdown-result {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: #e67e00;
         color: white;
         height: $dropdownTextHeight;   
         padding: 0.5rem;  
         border-bottom: 0.4rem solid white;
+
+        .result-heading {
+            color: white;
+            font-size: 2rem;
+            text-shadow:  0.25rem 0.25rem 0.5rem  #a00000; 
+                 
+        }
+
+        .final-score-line {          
+           
+            margin: 0 auto;
+    
+            .final-score-element {
+                display: flex;
+               
+            }        
+        }
+
+        .dropdown-line {
+            display: flex;
+            justify-content: space-between;
+            width: 75%;  
+            margin: 0 auto;
+            font-size: 1.5rem;
+            text-shadow:  0.125rem 0.125rem 0.25rem  #a00000; 
+
+
+            .label {
+                padding-right: 1rem;
+            }              
+        }
+
+        .primary-btn {
+            width: 10rem;
+            
+        }
     }
 }
 

@@ -47,7 +47,18 @@ interface HidingPlace {
         transition('dropped => hiding', [
             animate('2s ease')
         ])  
-    ]),     
+    ]), 
+    trigger('headingStatus', [
+        state('visible', style ({
+            opacity: '1'  
+        })),
+        state('invisible', style ({          
+            opacity: '0',    
+        })), 
+        transition('visible <=> invisible', [
+            animate('1s ease')
+        ])  
+    ]),         
 ]
 })
 export class CatGame2Component implements OnInit {
@@ -61,11 +72,15 @@ export class CatGame2Component implements OnInit {
     guessCount: number = 0;
     gridDisabled: boolean = true;
     startDisabled: boolean = false;
+    firstAttempt: boolean = true;
 
     dropStatus='hiding';
+    headingStatus='visible';
 
     bestScore: number = 0;
     bestTime: number = 0;
+
+    dropdownBestMessage: string = '';
 
     get timing(): Timing {
         return this.timer.timing;
@@ -95,16 +110,36 @@ export class CatGame2Component implements OnInit {
             this.hidingPlace[guessLoc].value='';
             this.gridDisabled=true;
            
-
+            let newBestScoreAchieved = false;
             if (this.bestScore === 0 ||
                      this.guessCount < this.bestScore) {
+                newBestScoreAchieved = true;         
                 this.bestScore = this.guessCount;
             }
-            this.timer.checkIfBestTime();
-            this.dropStatus="dropped"
+            let newBestTimeAchieved = this.timer.checkIfBestTime();
+            this.dropStatus='dropped'
+            this.headingStatus='invisible';
+
+            if (!this.firstAttempt) {
+                if (newBestTimeAchieved) {
+                    if (newBestScoreAchieved) {
+                        this.dropdownBestMessage='Well done you have achieved a new best time and best number of guesses';
+                    } else {
+                        this.dropdownBestMessage='Well done you have achieved a new best time';
+                    }
+                } else {
+                    if (newBestScoreAchieved) {
+                        this.dropdownBestMessage='Well done you have achieve your best number of guesses';
+                    } else {
+                        this.dropdownBestMessage='';
+                    }
+                } 
+            } else {
+                this.firstAttempt=false;
+            }    
 
         } else {
-            this.hidingPlace[guessLoc].value="No!";
+            this.hidingPlace[guessLoc].value='No!';
         }
     }
 

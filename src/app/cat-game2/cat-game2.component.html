@@ -1,15 +1,31 @@
 <div class="dropdown"
       [@dropStatus]="dropStatus">             
     <div class="dropdown-hanger"></div>
-    <div class="dropdown-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis similique c
-            ommodi sed praesentium, minima architecto repellendus laborum ipsum placeat       
+    <div class="dropdown-result">
+        <div class="result-heading">
+            You found the cat!
+        </div>
+        <div class="final-score-line dropdown-line">
+            <div class="final-score-element">
+                <div class="label">Number of Guesses:</div>
+                <div class="value">5</div>
+            </div>
+            <div class="final-score-element">
+                <div class="label">Time Taken (seconds):</div>
+                <div class="value">02:33</div>
+            </div>
+        </div>
+        <div class="play-again-line dropdown-line">
+            <p class="stats-status">{{dropdownBestMessage}}</p>
+            <button class="primary-btn">Play Again</button>
+        </div>        
     </div> 
 </div>
 
 <div class="outer-container">
     <div class="container">
-        <div class="title-and-controls">
+        <div class="title-and-controls"
+            [@headingStatus]="headingStatus">
             <h2>Find the Cat</h2>
             <div class="game-controls">                
                 <div class="count game-monitor">
@@ -34,7 +50,7 @@
                             [disabled]="startDisabled">Start</button>
                 </div>
                 <div class="try-again">
-                    <button class="secondary-btn"
+                    <button class="reset-btn"
                             (click)="reset()">Reset</button>
                 </div>
             </div>
