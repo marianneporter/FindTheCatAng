@@ -1,8 +1,26 @@
-$hidingPlaceDimension: 4.5rem;
-$contentWidth: 45rem;
 $controlHeight: 3rem;
 $dropdownHeight: 15rem;
 $dropdownTextHeight: 10rem;
+
+.container {
+    --game-width: 40rem;
+    --hiding-place-dimension: 3.25rem;
+    --hiding-grid-element-size: calc(var(--hiding-place-dimension) * 6);
+}
+
+//phones
+@media screen and  (max-width: 767px) { 
+ 
+}
+
+//not phones
+@media screen and (min-width: 768px) {
+    .container {
+        --game-width: 50rem;
+        --hiding-place-dimension: 4.5rem;
+        --hiding-grid-element-size: calc(var(--hiding-place-dimension) * 6);
+    }
+}
 
 %btn {
     display: inline-block;
@@ -66,8 +84,8 @@ $dropdownTextHeight: 10rem;
 }
 
 .container {
-    height: 40rem;
-    width: 50rem;    
+ //   height: 40rem;
+    width: var(--game-width);   
 }
 
 h4 {
@@ -89,23 +107,25 @@ h4 {
         display: flex;
         justify-content: space-around;
         align-items: center;  
+        flex-wrap: wrap;
         font-size: 1.2rem;
     }    
 }
 
 
-.all-hiding-places {
+.hiding-grid {
  
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
-  
-    height: $hidingPlaceDimension * 6;
-    width:  $hidingPlaceDimension * 6;
+ 
+    height: var(--hiding-grid-element-size);
+    width: var(--hiding-grid-element-size);
+
     margin: 1.5rem auto 0 auto;
 
 
     .hiding-place {
-        height: $hidingPlaceDimension;
+        height: var(--hiding-place-dimension); 
         width: 100%;
         background: orange;
         border: 0.1rem solid black; 
@@ -113,8 +133,8 @@ h4 {
         background-size: cover;  
    
        .on-top {
-           height: $hidingPlaceDimension;
-           max-height: $hidingPlaceDimension;     
+           height: var(--hiding-place-dimension); 
+           max-height: var(--hiding-place-dimension);    
            display: flex;
            align-items: center;
            justify-content: center;
@@ -155,7 +175,8 @@ h4 {
     width: 60rem;
     font-size: 1.5rem; 
     border-right: 0.4rem solid white;
-    border-left: 0.4rem solid white;     
+    border-left: 0.4rem solid white;    
+    z-index: 999; 
     
     .dropdown-hanger {
         height: $dropdownHeight - $dropdownTextHeight;

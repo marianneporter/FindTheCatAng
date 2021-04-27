@@ -92,8 +92,7 @@ export class CatGame2Component implements OnInit {
 
     ngOnInit(): void {
         this.initialiseGrid();
-        this.newCatLocation();
-        console.log(this.hidingPlace);
+        this.newCatLocation();     
     }
 
     newCatLocation(): void {
@@ -155,6 +154,14 @@ export class CatGame2Component implements OnInit {
         this.timer.resetTimer();
         this.initialiseGrid();
         this.startDisabled=false;
+    }
+
+    playAgain() {
+        debugger;
+        console.log('in play again method');
+        this.dropStatus='hiding'
+        this.headingStatus='visible';
+        this.reset();
     }
 
     initialiseGrid() {
