@@ -3,8 +3,7 @@
 // SCSS Used thoughout component                                   /
 /******************************************************************/
 $controlHeight: 3rem;
-$dropdownHeight: 15rem;
-$dropdownTextHeight: 10rem;
+//$dropdownTextHeight: 10rem;
 
 
 
@@ -21,21 +20,24 @@ $dropdownTextHeight: 10rem;
     .dropdown {
         --dropdown-width: calc(var(--game-width) * 0.90);
         --dropdown-height: 15rem;
+        --dropdown-body-height: 10rem;
     }
 }
 
 @media screen and (min-width: 576px) and (max-width: 767px) {
     .cat-game-all-elements {
-        --game-width: 40rem;
+        --game-width: 40rem;      
     }
 
     .container {
-        --dropdown-width: calc(--game-width * 0.90);
+        --hiding-place-dimension: 3.25rem;   
         --hiding-grid-element-size: calc(var(--hiding-place-dimension) * 6);    
     }
 
     .dropdown {
-        --hiding-place-dimension: 3.25rem;
+        --dropdown-width: calc(--game-width * 0.90);
+        --dropdown-height: 15rem;
+        --dropdown-body-height: 10rem;
     }
 }
 
@@ -51,6 +53,8 @@ $dropdownTextHeight: 10rem;
 
     .dropdown {
         --dropdown-width: calc(var(--game-width) * 0.90);
+        --dropdown-height: 15rem;
+        --dropdown-body-height: 10rem;        
     } 
 }
 
@@ -152,10 +156,7 @@ h4 {
         .primary-btn, .reset-btn {
             min-width: 45%;
         }
-
-    }
-
- 
+    } 
 
     //desktop
     @media screen and (min-width: 768px) {
@@ -269,8 +270,8 @@ h4 {
 
 .dropdown {    
     position: absolute;    
-    top: (-$dropdownHeight);   
-    height: $dropdownHeight;
+    top: calc(-var(--dropdown-height));  
+    height: var(--dropdown-height);
     width: var(--dropdown-width);
     left: calc(50vw - (var(--dropdown-width) / 2));
     
@@ -281,7 +282,8 @@ h4 {
     z-index: 999;  
     
     .dropdown-hanger {
-        height: $dropdownHeight - $dropdownTextHeight;
+        height: calc(var(--dropdown-height) - var(--dropdown-body-height)); 
+        width: var(--dropdown-width);
     }
 
     .dropdown-result {
@@ -290,7 +292,7 @@ h4 {
         justify-content: space-around;
         background-color: #e67e00;
         color: white;
-        height: $dropdownTextHeight;   
+        height: var(--dropdown-body-height);
         padding: 0.5rem;  
         border-bottom: 0.4rem solid white;
 
