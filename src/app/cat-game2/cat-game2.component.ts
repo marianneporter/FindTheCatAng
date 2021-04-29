@@ -29,12 +29,10 @@ interface HidingPlace {
     ]),
     trigger('dropStatus', [
         state('hiding', style ({
-            top: '-15rem',
-            left: '25rem'        
+            top: '-15rem'    
         })),
         state('dropped', style ({          
-            top: '0',
-            left: '25rem'        
+            top: '0'        
         })), 
         transition('hiding => dropped', [
             animate('2s ease', keyframes([

@@ -7,30 +7,52 @@ $dropdownHeight: 15rem;
 $dropdownTextHeight: 10rem;
 
 
+
 @media screen and (max-width: 575px) {
-    .container {
+    .cat-game-all-elements  {
         --game-width: 30rem;
+    }
+
+    .container {   
         --hiding-place-dimension: 2.75rem;
         --hiding-grid-element-size: calc(var(--hiding-place-dimension) * 6);       
+    }
+
+    .dropdown {
+        --dropdown-width: calc(var(--game-width) * 0.90);
+        --dropdown-height: 15rem;
     }
 }
 
 @media screen and (min-width: 576px) and (max-width: 767px) {
-    .container {
+    .cat-game-all-elements {
         --game-width: 40rem;
-        --hiding-place-dimension: 3.25rem;
+    }
+
+    .container {
+        --dropdown-width: calc(--game-width * 0.90);
         --hiding-grid-element-size: calc(var(--hiding-place-dimension) * 6);    
+    }
+
+    .dropdown {
+        --hiding-place-dimension: 3.25rem;
     }
 }
 
 @media screen and (min-width: 768px) {
-    .container {
+    .cat-game-all-elements {
         --game-width: 50rem;
-        --hiding-place-dimension: 4.5rem;
-        --hiding-grid-element-size: calc(var(--hiding-place-dimension) * 6);
-    }     
-}
+    }
 
+    .container {
+        --hiding-place-dimension: 4.5rem;
+        --hiding-grid-element-size:calc(var(--hiding-place-dimension) * 6);      
+    }   
+
+    .dropdown {
+        --dropdown-width: calc(var(--game-width) * 0.90);
+    } 
+}
 
 %btn {
     display: block;
@@ -57,6 +79,7 @@ $dropdownTextHeight: 10rem;
     }    
 }
 
+
 .game-monitor {
     @extend %monitor; 
 }
@@ -64,8 +87,7 @@ $dropdownTextHeight: 10rem;
 .primary-btn {
     @extend %btn;
     color: white;
-    background-color: #4CBB17;
-  
+    background-color: #4CBB17;  
 }
 
 .reset-btn {
@@ -84,10 +106,12 @@ $dropdownTextHeight: 10rem;
     justify-content: center;
     align-items: center; 
     height: 100vh;
+    background-color: palevioletred;
 }
 
 .container {
     width: var(--game-width);   
+    background-color: lightsalmon;
 }
 
 h4 {
@@ -107,8 +131,7 @@ h4 {
         font-size: 2rem;
         text-shadow: 2px 2px red;
         margin-bottom: 1rem;
-    }
-    
+    }    
  
     // phones
     @media screen and (max-width: 767px) {
@@ -136,12 +159,7 @@ h4 {
 
     //desktop
     @media screen and (min-width: 768px) {
-        .container {
-            --game-width: 50rem;
-            --hiding-place-dimension: 4.5rem;
-            --hiding-grid-element-size: calc(var(--hiding-place-dimension) * 6);
-        }
-            
+             
         .game-controls {
             display: flex;
             justify-content:space-between;
@@ -245,17 +263,22 @@ h4 {
 /***************************************************************************/
 // SCSS used within dropdown area                                     */
 /***************************************************************************/
+
+
+
+
 .dropdown {    
     position: absolute;    
-    left: 25rem;  
-    top: (-$dropdownHeight);
-    background-color: transparent;
+    top: (-$dropdownHeight);   
     height: $dropdownHeight;
-    width: 60rem;
+    width: var(--dropdown-width);
+    left: calc(50vw - (var(--dropdown-width) / 2));
+    
     font-size: 1.5rem; 
     border-right: 0.4rem solid white;
-    border-left: 0.4rem solid white;    
-    z-index: 999; 
+    border-left: 0.4rem solid white; 
+    background-color: transparent; 
+    z-index: 999;  
     
     .dropdown-hanger {
         height: $dropdownHeight - $dropdownTextHeight;
@@ -306,6 +329,8 @@ h4 {
             width: 10rem;
             
         }
+
+        
     }
 }
 
