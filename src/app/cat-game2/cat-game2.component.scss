@@ -3,9 +3,6 @@
 // SCSS Used thoughout component                                   /
 /******************************************************************/
 $controlHeight: 3rem;
-//$dropdownTextHeight: 10rem;
-
-
 
 @media screen and (max-width: 575px) {
     .cat-game-all-elements  {
@@ -110,13 +107,12 @@ $controlHeight: 3rem;
     justify-content: center;
     align-items: center; 
     height: 100vh;
-    background-color: palevioletred;
 }
+  
 
 .container {
     width: var(--game-width);   
-    background-color: lightsalmon;
-}
+}  
 
 h4 {
     color: white; 

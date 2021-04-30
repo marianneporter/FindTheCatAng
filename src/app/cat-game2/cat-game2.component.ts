@@ -155,8 +155,6 @@ export class CatGame2Component implements OnInit {
     }
 
     playAgain() {
-        debugger;
-        console.log('in play again method');
         this.dropStatus='hiding'
         this.headingStatus='visible';
         this.reset();
