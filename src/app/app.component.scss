@@ -10,12 +10,16 @@
 //background for mobile
 @media screen and (max-width: 767px) {
     .content {
+      
         background: lightskyblue;
         width: 100%; 
         min-width: 0;    max-width: 767px;   
         min-height: 100vh;  
         background-size:cover;  
         padding: 1rem;
-        overflow: auto;       
+        overflow: auto;   
+        
+        
+       
     }    
 }

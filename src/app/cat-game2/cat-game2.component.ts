@@ -29,17 +29,17 @@ interface HidingPlace {
     ]),
     trigger('dropStatus', [
         state('hiding', style ({
-            top: '-15rem'    
+            top: '-30%'    
         })),
         state('dropped', style ({          
             top: '0'        
         })), 
         transition('hiding => dropped', [
             animate('2s ease', keyframes([
-              style({ top: '-15rem', offset: 0 }),
-              style({ top: '0rem', offset: 0.50 }),
-              style({ top: '-2rem', offset: 0.75 }),
-              style({ top: '0rem', offset: 1 })
+              style({ top: '-30%', offset: 0 }),
+              style({ top: '0', offset: 0.50 }),
+              style({ top: '-5%', offset: 0.75 }),
+              style({ top: '0', offset: 1 })
             ]))
         ]),  
         transition('dropped => hiding', [

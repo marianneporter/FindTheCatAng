@@ -1,23 +1,36 @@
-
-/******************************************************************/
-// SCSS Used thoughout component                                   /
-/******************************************************************/
-$controlHeight: 3rem;
-
 @media screen and (max-width: 575px) {
-    .cat-game-all-elements  {
-        --game-width: 30rem;
+    .cat-game-all-elements  {       
+        --game-width: 30rem;  
+    //    margin-top: 10rem;    
     }
 
-    .container {   
-        --hiding-place-dimension: 2.75rem;
-        --hiding-grid-element-size: calc(var(--hiding-place-dimension) * 6);       
+    .container {       
+        --hiding-place-width: 2.5rem;
+        --hiding-place-margin: 0.1rem;
+        @media screen and (max-height: 569px) {
+            --hiding-place-height: 1.5rem;          
+        }
+        @media  screen and (min-height: 570px) {
+            --hiding-place-height: 2.5rem;         
+        }        
+        --hiding-grid-element-width:  calc((var(--hiding-place-width) * 6)
+                                        + (var(--hiding-place-margin)* 12));   
+        --hiding-grid-element-height: calc((var(--hiding-place-height) * 6) 
+                                        + (var(--hiding-place-margin)* 12)); 
+        --control-height: 2.25rem;        
+    }
+
+    .hiding-place {
+        font-size: 1.5rem;   
     }
 
     .dropdown {
         --dropdown-width: calc(var(--game-width) * 0.90);
-        --dropdown-height: 15rem;
-        --dropdown-body-height: 10rem;
+        --dropdown-height: 40%;    
+    }
+
+    h2, h4 {
+        margin-left: 0.5rem;
     }
 }
 
@@ -27,38 +40,56 @@ $controlHeight: 3rem;
     }
 
     .container {
-        --hiding-place-dimension: 3.25rem;   
-        --hiding-grid-element-size: calc(var(--hiding-place-dimension) * 6);    
+        --hiding-place-height: 3.25rem;   
+        --hiding-place-width: 3.25rem;
+        --hiding-place-margin: 0.1rem;
+        --hiding-grid-element-width: calc((var(--hiding-place-width) * 6)
+                                      + (var(--hiding-place-margin)* 12));   
+        --hiding-grid-element-height: calc((var(--hiding-place-height) * 6) 
+                                      + (var(--hiding-place-margin)* 12)); 
+        --control-height: 3rem; 
+    }
+
+    .hiding-place {
+        font-size: 1.5rem;   
     }
 
     .dropdown {
-        --dropdown-width: calc(--game-width * 0.90);
-        --dropdown-height: 15rem;
-        --dropdown-body-height: 10rem;
+        --dropdown-width: calc(var(--game-width) * 0.90);
+        --dropdown-height: 20%;     
     }
 }
 
 @media screen and (min-width: 768px) {
     .cat-game-all-elements {
-        --game-width: 50rem;
+        --game-width: 50rem;     
     }
 
     .container {
-        --hiding-place-dimension: 4.5rem;
-        --hiding-grid-element-size:calc(var(--hiding-place-dimension) * 6);      
+        --hiding-place-height: 4.5rem;
+        --hiding-place-width: 4.5rem;
+        --hiding-place-margin: 0.1rem;
+        --hiding-grid-element-width:  calc((var(--hiding-place-width) * 6)
+                                    + (var(--hiding-place-margin)* 12));   
+        --hiding-grid-element-height: calc((var(--hiding-place-height) * 6) 
+                                    + (var(--hiding-place-margin)* 12));   
+        --control-height: 3rem;     
     }   
+
+    .hiding-place {
+        font-size: 2rem;   
+    }
 
     .dropdown {
         --dropdown-width: calc(var(--game-width) * 0.90);
-        --dropdown-height: 15rem;
-        --dropdown-body-height: 10rem;        
+        --dropdown-height: 20%;          
     } 
 }
 
 %btn {
     display: block;
     border-radius: 0.5rem;
-    height: $controlHeight; 
+    height: var(--control-height);
     font-size: 1.3rem;
     text-decoration: none;
     font-weight: 600;
@@ -71,7 +102,7 @@ $controlHeight: 3rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: $controlHeight;
+    height: var(--control-height);
     background-color: white;
     border-radius: 0.5rem;
     padding: 0.5rem;
@@ -80,6 +111,9 @@ $controlHeight: 3rem;
     }    
 }
 
+.cat-game-all-elements, .dropdown-result, .dropdown-hanger {
+    position: relative;
+}
 
 .game-monitor {
     @extend %monitor; 
@@ -112,6 +146,7 @@ $controlHeight: 3rem;
 
 .container {
     width: var(--game-width);   
+    padding: 0.5rem;    
 }  
 
 h4 {
@@ -156,6 +191,8 @@ h4 {
 
     //desktop
     @media screen and (min-width: 768px) {
+
+
              
         .game-controls {
             display: flex;
@@ -186,30 +223,28 @@ h4 {
 //  SCSS used within grid area                                          */
 /************************************************************************/
 .hiding-grid {
- 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
  
-    height: var(--hiding-grid-element-size);
-    width: var(--hiding-grid-element-size);
+    height: var(--hiding-grid-element-height);
+    width: var(--hiding-grid-element-width);
 
-    margin: 1.5rem auto 0 auto;
+    margin: 1rem auto 0 auto;
 
     .hiding-place {
-        height: var(--hiding-place-dimension); 
-        width: 100%;
+        height: var(--hiding-place-height); 
+        width: var(--hiding-place-width);
         background: orange;
-        border: 0.1rem solid black; 
+        margin: var(--hiding-place-margin); 
         background-image: url("../../assets/catsface.jpg");
         background-size: cover;  
    
        .on-top {
-           height: var(--hiding-place-dimension); 
-           max-height: var(--hiding-place-dimension);    
+           height: var(--hiding-place-height); 
+           max-height: var(--hiding-place-height);    
            display: flex;
            align-items: center;
-           justify-content: center;
-           font-size: 2rem;   
+           justify-content: center;         
            background-color: white;      
        }
     }
@@ -266,20 +301,20 @@ h4 {
 
 .dropdown {    
     position: absolute;    
-    top: calc(-var(--dropdown-height));  
-    height: var(--dropdown-height);
+    top: -25%;  
+    height: 25%;
     width: var(--dropdown-width);
-    left: calc(50vw - (var(--dropdown-width) / 2));
-    
+    left: calc(50vw - (var(--dropdown-width) / 2));    
     font-size: 1.5rem; 
     border-right: 0.4rem solid white;
     border-left: 0.4rem solid white; 
-    background-color: transparent; 
+    background-color:  transparent;
     z-index: 999;  
     
     .dropdown-hanger {
-        height: calc(var(--dropdown-height) - var(--dropdown-body-height)); 
+        height: 33.4%;
         width: var(--dropdown-width);
+     
     }
 
     .dropdown-result {
@@ -288,9 +323,10 @@ h4 {
         justify-content: space-around;
         background-color: #e67e00;
         color: white;
-        height: var(--dropdown-body-height);
+        height: 66.6%;
         padding: 0.5rem;  
         border-bottom: 0.4rem solid white;
+        background-color: orange;
 
         .result-heading {
             color: white;
