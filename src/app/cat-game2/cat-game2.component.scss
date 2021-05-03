@@ -1,14 +1,16 @@
 @media screen and (max-width: 575px) {
     .cat-game-all-elements  {       
-        --game-width: 30rem;  
+        --game-width: 100%;  
+      
     //    margin-top: 10rem;    
     }
+
 
     .container {       
         --hiding-place-width: 2.5rem;
         --hiding-place-margin: 0.1rem;
         @media screen and (max-height: 569px) {
-            --hiding-place-height: 1.5rem;          
+            --hiding-place-height: 2rem;          
         }
         @media  screen and (min-height: 570px) {
             --hiding-place-height: 2.5rem;         
@@ -17,7 +19,9 @@
                                         + (var(--hiding-place-margin)* 12));   
         --hiding-grid-element-height: calc((var(--hiding-place-height) * 6) 
                                         + (var(--hiding-place-margin)* 12)); 
-        --control-height: 2rem;        
+        --control-height: 2rem;   
+        padding: 1rem;    
+      
     }
 
     .hiding-place {
@@ -25,8 +29,15 @@
     }
 
     .dropdown {
-        --dropdown-width: calc(var(--game-width) * 0.90);
-        --dropdown-height: 40%;    
+        --dropdown-width: calc(var(--game-width) * 0.80);
+        --dropdown-height: 28%;  
+
+        
+        .primary-btn {
+            width: 33%;
+            
+        }
+  
     }
 
     h2, h4 {
@@ -62,6 +73,7 @@
         --hiding-grid-element-height: calc((var(--hiding-place-height) * 6) 
                                       + (var(--hiding-place-margin)* 12)); 
         --control-height: 3rem; 
+        padding: 0.5rem;    
     }
 
     .hiding-place {
@@ -70,7 +82,13 @@
 
     .dropdown {
         --dropdown-width: calc(var(--game-width) * 0.90);
-        --dropdown-height: 20%;     
+        --dropdown-height: 20%; 
+        
+        .primary-btn {
+            width: 10rem;
+            
+        }
+
     }
 
     h2,h4 {
@@ -91,7 +109,8 @@
 
 @media screen and (min-width: 768px) {
     .cat-game-all-elements {
-        --game-width: 50rem;     
+        --game-width: 50rem; 
+        
     }
 
     .container {
@@ -102,7 +121,8 @@
                                     + (var(--hiding-place-margin)* 12));   
         --hiding-grid-element-height: calc((var(--hiding-place-height) * 6) 
                                     + (var(--hiding-place-margin)* 12));   
-        --control-height: 3rem;     
+        --control-height: 3rem;  
+        padding:1.5rem;       
     }   
 
     .hiding-place {
@@ -111,7 +131,20 @@
 
     .dropdown {
         --dropdown-width: calc(var(--game-width) * 0.90);
-        --dropdown-height: 20%;          
+        --dropdown-height: 20%;         
+              
+        .result-heading {
+            font-size: 2rem;            
+        }
+
+        .dropdown-line {
+            font-size: 1.5rem;
+        }
+        
+        .primary-btn {
+            width: 10rem;
+            
+        }
     } 
 
     h2,h4 {
@@ -153,9 +186,9 @@
     }    
 }
 
-.cat-game-all-elements, .dropdown-result, .dropdown-hanger {
-    position: relative;
-}
+// .cat-game-all-elements, .dropdown-result, .dropdown-hanger {
+//     position: relative;
+// }
 
 .game-monitor {
     @extend %monitor; 
@@ -187,8 +220,8 @@
   
 
 .container {
-    width: var(--game-width);   
-    padding: 0.5rem;    
+    min-width: var(--game-width);   
+  
 }  
 
 // h4 {
@@ -338,11 +371,11 @@
 
 .dropdown {    
     position: absolute;    
-    top: -25%;  
-    height: 25%;
+    top: calc(-var(--dropdown-height));
+    height: calc(var(--dropdown-height) + 5% );
     width: var(--dropdown-width);
-    left: calc(50vw - (var(--dropdown-width) / 2));    
-    font-size: 1.5rem; 
+    left: calc(50vw - (var(--dropdown-width) / 2) - 1rem);    
+
     border-right: 0.4rem solid white;
     border-left: 0.4rem solid white; 
     background-color:  transparent;
@@ -355,9 +388,7 @@
     }
 
     .dropdown-result {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+ 
         background-color: #e67e00;
         color: white;
         height: 66.6%;
@@ -367,27 +398,25 @@
 
         .result-heading {
             color: white;
-            font-size: 2rem;
+
             text-shadow:  0.25rem 0.25rem 0.5rem  #a00000; 
                  
         }
 
         .final-score-line {          
-           
-            margin: 0 auto;
-    
+
             .final-score-element {
-                display: flex;
-               
-            }        
+                .label, .value {
+                    display: inline-block;
+                }              
+            }   
+        
         }
 
         .dropdown-line {
-            display: flex;
-            justify-content: space-between;
-            width: 75%;  
-            margin: 0 auto;
-            font-size: 1.5rem;
+
+      
+   
             text-shadow:  0.125rem 0.125rem 0.25rem  #a00000; 
 
 
@@ -396,10 +425,6 @@
             }              
         }
 
-        .primary-btn {
-            width: 10rem;
-            
-        }
 
         
     }
