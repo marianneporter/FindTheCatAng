@@ -17,7 +17,7 @@
                                         + (var(--hiding-place-margin)* 12));   
         --hiding-grid-element-height: calc((var(--hiding-place-height) * 6) 
                                         + (var(--hiding-place-margin)* 12)); 
-        --control-height: 2.25rem;        
+        --control-height: 2rem;        
     }
 
     .hiding-place {
@@ -30,7 +30,21 @@
     }
 
     h2, h4 {
-        margin-left: 0.5rem;
+        margin-left: 0.5rem; 
+        color: #ff4040;
+        text-shadow: -2px 0 #feb1b1,
+                      0 2px #feb1b1,
+                      2px 0 #feb1b1, 
+                      0 -2px #feb1b1;   
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 800;
+    }
+    
+    h4 {
+        font-size: 1.25rem;
     }
 }
 
@@ -58,6 +72,21 @@
         --dropdown-width: calc(var(--game-width) * 0.90);
         --dropdown-height: 20%;     
     }
+
+    h2,h4 {
+        color: white;
+        text-shadow: 0.2rem 0.2rem red;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    h4 {
+        font-size: 1.4rem;
+    }
+
+
 }
 
 @media screen and (min-width: 768px) {
@@ -84,6 +113,19 @@
         --dropdown-width: calc(var(--game-width) * 0.90);
         --dropdown-height: 20%;          
     } 
+
+    h2,h4 {
+        color: white;
+        text-shadow: 0.2rem 0.2rem red;
+    }
+
+    h2 {
+        font-size: 2rem;      
+    }
+
+    h4 {
+        font-size: 1.75rem;       
+    }
 }
 
 %btn {
@@ -149,11 +191,10 @@
     padding: 0.5rem;    
 }  
 
-h4 {
-    color: white; 
-    font-size: 1.75rem;
-    text-shadow: 2px 2px red;
-}
+// h4 {
+//     color: white;
+//     text-shadow: 2px 2px red;
+// }
 
 /******************************************************************/
 // SCSS Used in title-and-controls
@@ -162,9 +203,6 @@ h4 {
 .title-and-controls {
 
     h2 {
-        color: white; 
-        font-size: 2rem;
-        text-shadow: 2px 2px red;
         margin-bottom: 1rem;
     }    
  
@@ -191,7 +229,6 @@ h4 {
 
     //desktop
     @media screen and (min-width: 768px) {
-
 
              
         .game-controls {
