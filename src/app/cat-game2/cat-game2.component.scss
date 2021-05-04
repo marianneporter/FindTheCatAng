@@ -1,8 +1,6 @@
 @media screen and (max-width: 575px) {
     .cat-game-all-elements  {       
         --game-width: 100%;  
-      
-    //    margin-top: 10rem;    
     }
 
 
@@ -32,11 +30,6 @@
         --dropdown-width: calc(var(--game-width) * 0.80);
         --dropdown-height: 28%;  
 
-        
-        .primary-btn {
-            width: 33%;
-            
-        }
   
     }
 
@@ -59,13 +52,18 @@
     }
 }
 
-@media screen and (min-width: 576px) and (max-width: 767px) {
+@media screen and (min-width: 576px) and (max-width: 991px) {
     .cat-game-all-elements {
         --game-width: 40rem;      
     }
 
     .container {
-        --hiding-place-height: 3.25rem;   
+        @media screen and (max-height: 399px) {
+            --hiding-place-height: 2rem;          
+        }
+        @media  screen and (min-height: 400px) {
+            --hiding-place-height: 2.5rem;         
+        }       
         --hiding-place-width: 3.25rem;
         --hiding-place-margin: 0.1rem;
         --hiding-grid-element-width: calc((var(--hiding-place-width) * 6)
@@ -73,7 +71,7 @@
         --hiding-grid-element-height: calc((var(--hiding-place-height) * 6) 
                                       + (var(--hiding-place-margin)* 12)); 
         --control-height: 3rem; 
-        padding: 0.5rem;    
+        padding-top: 20rem;
     }
 
     .hiding-place {
@@ -83,13 +81,9 @@
     .dropdown {
         --dropdown-width: calc(var(--game-width) * 0.90);
         --dropdown-height: 20%; 
-        
-        .primary-btn {
-            width: 10rem;
-            
-        }
-
     }
+
+
 
     h2,h4 {
         color: white;
@@ -104,10 +98,21 @@
         font-size: 1.4rem;
     }
 
+    .primary-btn {
+        width: 10rem;
+        font-size: 1.3rem;
+        justify-self: right;
+        height: 100%;
+    }
 
+    .play-again-line {
+        display: flex;
+        justify-content: space-between;
+        height: 35%;
+    }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
     .cat-game-all-elements {
         --game-width: 50rem; 
         
@@ -143,7 +148,15 @@
         
         .primary-btn {
             width: 10rem;
-            
+            font-size: 1.3rem;
+            justify-self: right;
+            height: 100%;
+        }
+
+        .play-again-line {
+            display: flex;
+            justify-content: space-between;
+            height: 35%;
         }
     } 
 
@@ -165,6 +178,7 @@
     display: block;
     border-radius: 0.5rem;
     height: var(--control-height);
+    width: 10rem;
     font-size: 1.3rem;
     text-decoration: none;
     font-weight: 600;
@@ -186,10 +200,6 @@
     }    
 }
 
-// .cat-game-all-elements, .dropdown-result, .dropdown-hanger {
-//     position: relative;
-// }
-
 .game-monitor {
     @extend %monitor; 
 }
@@ -198,6 +208,7 @@
     @extend %btn;
     color: white;
     background-color: #4CBB17;  
+
 }
 
 .reset-btn {
@@ -224,11 +235,6 @@
   
 }  
 
-// h4 {
-//     color: white;
-//     text-shadow: 2px 2px red;
-// }
-
 /******************************************************************/
 // SCSS Used in title-and-controls
 /******************************************************************/
@@ -247,6 +253,7 @@
             justify-content: space-between;
         }   
 
+        
         .game-monitor {
             width: 45%;
         }
@@ -259,7 +266,7 @@
             min-width: 45%;
         }
     } 
-
+}
     //desktop
     @media screen and (min-width: 768px) {
 
@@ -282,10 +289,21 @@
             align-items: center;    
             width: 50%;   
         }
+        
+        .dropdown-result {
+            .play-again-line {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                height: 30%;
+            }
+    
+            .primary-btn {
+                width: 10rem;
+                height: 100%;
+     
+        }
 
-        .primary-btn, .reset-btn {
-            width: 10rem;
-        }       
     }
 }
 
@@ -360,22 +378,17 @@
     }
 }
 
-
-
 /***************************************************************************/
 // SCSS used within dropdown area                                     */
 /***************************************************************************/
 
-
-
-
 .dropdown {    
+ 
     position: absolute;    
     top: calc(-var(--dropdown-height));
     height: calc(var(--dropdown-height) + 5% );
     width: var(--dropdown-width);
-    left: calc(50vw - (var(--dropdown-width) / 2) - 1rem);    
-
+    left: calc(50vw - (var(--dropdown-width) / 2) - 1rem);
     border-right: 0.4rem solid white;
     border-left: 0.4rem solid white; 
     background-color:  transparent;
@@ -388,45 +401,44 @@
     }
 
     .dropdown-result {
- 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         background-color: #e67e00;
         color: white;
         height: 66.6%;
         padding: 0.5rem;  
         border-bottom: 0.4rem solid white;
-        background-color: orange;
+        background-color: darkorange;
 
         .result-heading {
+            font-size: 175%;
             color: white;
-
             text-shadow:  0.25rem 0.25rem 0.5rem  #a00000; 
                  
         }
 
-        .final-score-line {          
-
+        .final-score-line {  
+         
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            
+       
             .final-score-element {
-                .label, .value {
-                    display: inline-block;
-                }              
+                display: flex;    
+                justify-content: space-around;      
             }   
         
         }
 
-        .dropdown-line {
-
-      
-   
+        .dropdown-line {   
             text-shadow:  0.125rem 0.125rem 0.25rem  #a00000; 
-
-
             .label {
                 padding-right: 1rem;
             }              
-        }
-
-
-        
+        }    
+       
     }
 }
 

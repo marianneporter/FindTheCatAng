@@ -126,7 +126,7 @@ export class CatGame2Component implements OnInit {
                     }
                 } else {
                     if (newBestScoreAchieved) {
-                        this.dropdownBestMessage='Well done you have achieve your best number of guesses';
+                        this.dropdownBestMessage='Well done you have achieved your best number of guesses';
                     } else {
                         this.dropdownBestMessage='';
                     }
