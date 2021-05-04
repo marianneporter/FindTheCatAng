@@ -1,0 +1,10 @@
+
+<div class="hiding-place" *ngFor="let hp of hidingPlace; let i=index">
+    <div class="on-top"
+        (click)="checkGuess(i)" 
+        [@revealCat]="hidingPlace[i].revealState"
+        [ngClass]="{'grid-disabled': gridDisabled }">
+        {{hidingPlace[i].value}} 
+    </div>            
+</div>       
+

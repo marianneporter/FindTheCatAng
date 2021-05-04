@@ -1,0 +1,23 @@
+<div class="dropdown"
+[@dropStatus]="dropStatus">             
+<div class="dropdown-hanger"></div>
+<div class="dropdown-result">
+    <div class="result-heading">
+        You found the cat!
+    </div>
+    <div class="final-score-line dropdown-line">
+        <div class="final-score-element">
+            <div class="label">Number of Guesses:</div>
+            <div class="value">{{guessCount}}</div>
+        </div>
+        <div class="final-score-element">
+            <div class="label">Time Taken (seconds):</div>
+            <div class="value">{{timing.seconds | number: '2.0'}}:{{timing.tenths | number: '2.0' }}</div>
+        </div>
+    </div>
+    <div class="play-again-line dropdown-line">
+        <p class="game-status">{{dropdownBestMessage}}</p>
+        <button class="primary-btn" (click)="playAgain()">Play Again</button>
+    </div>        
+</div> 
+</div>

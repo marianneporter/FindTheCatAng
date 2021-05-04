@@ -1,0 +1,29 @@
+<div class="game-controls"> 
+    <div class="game-monitor-group">
+        <div class="count game-monitor">
+            <div class="label">
+                Guesses
+            </div>
+            <div class="info">
+                {{guessCount}}
+            </div>
+        </div>
+        <div class="timer game-monitor">
+            <div class="label">
+                Time
+            </div>
+            <div class="info">                      
+                {{timing.seconds | number: '2.0'}}:{{timing.tenths | number: '2.0' }}
+            </div>
+        </div>
+    </div>               
+    <div class="game-monitor-buttons">                   
+        <button class="primary-btn"
+                (click)="startGame()"
+                [disabled]="startDisabled">Start</button>
+
+        <button class="reset-btn"
+                (click)="reset()">Reset</button>                 
+    </div>
+
+</div>
