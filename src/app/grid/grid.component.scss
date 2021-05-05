@@ -1,20 +1,7 @@
+@use 'grid-properties';
+
 .hiding-grid {
-    @media screen and (max-width: 575px) {
-        --hiding-place-width: 2.5rem;
-        --hiding-place-margin: 0.1rem;    
-        @media screen and (max-height: 569px) {
-            --hiding-place-height: 2rem;          
-        }
-        @media  screen and (min-height: 570px) {
-            --hiding-place-height: 2.5rem;         
-        } 
-    }
-
-    --hiding-grid-element-width:  calc((var(--hiding-place-width) * 6)
-                                + (var(--hiding-place-margin)* 12));   
-    --hiding-grid-element-height: calc((var(--hiding-place-height) * 6) 
-                                + (var(--hiding-place-margin)* 12));  
-
+ 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
  

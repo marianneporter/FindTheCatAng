@@ -36,3 +36,26 @@
     }
 }
 
+@media screen and (min-width: 500px) {
+    .game-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;  
+    }
+
+    .game-monitor-group {
+        margin: 0;  
+        width: 45%;            
+    }
+
+    .game-control-buttons {
+        margin: 0;
+        width: 45%;      
+        align-items: center;
+    }
+
+    
+
+}
+

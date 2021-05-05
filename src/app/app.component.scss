@@ -1,21 +1,24 @@
-.content {
-    height: 100vh;
-    width: 100%;
-    background-image: radial-gradient(#387989, #6dd5ed);
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: fixed;
-}
-
 //background for mobile
-@media screen and (max-width: 767px) {
-    .content {      
-        background:#9FD8FB;
-        width: 100%; 
-        min-width: 0; max-width: 100vw;   
-        min-height: 100vh;  
-        background-size:cover;  
-        padding: 0.5rem;
-        overflow: auto;         
-    }    
+
+.content {      
+    background:#9FD8FB;
+    width: 100%; 
+    min-width: 0; max-width: 100vw;   
+    min-height: 100vh;  
+    background-size:cover;  
+    padding: 0.5rem;
+    overflow: auto;         
+}  
+
+@media screen and (min-width: 768px) {
+    @media (min-height: 500px) {
+        .content {
+            height: 100vh;
+            width: 100%;
+            background-image: radial-gradient(#387989, #6dd5ed);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: fixed;
+        }
+    }
 }

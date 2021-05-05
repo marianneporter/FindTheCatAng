@@ -1,0 +1,30 @@
+.hiding-grid {
+
+    // screens < 575px
+    --hiding-place-width: 2.5rem;
+    --hiding-place-margin: 0.1rem;    
+    @media screen and (max-height: 569px) {
+        --hiding-place-height: 2rem;          
+    }
+    @media  screen and (min-height: 570px) {
+        --hiding-place-height: 2.5rem;         
+    } 
+
+
+    // screens 576px and larger
+    @media screen and (min-width: 576px) {
+
+    }
+
+
+
+
+    //all screens
+    //calculate height for the whole grid area
+    --hiding-grid-element-width:  calc((var(--hiding-place-width) * 6)
+                                + (var(--hiding-place-margin)* 12));   
+    --hiding-grid-element-height: calc((var(--hiding-place-height) * 6) 
+                                + (var(--hiding-place-margin)* 12));  
+
+   
+}
