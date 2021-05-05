@@ -9,3 +9,9 @@
                       0 -2px #feb1b1;   
     }
 }
+
+@media screen and (min-width: 500px) {
+    .title-and-controls {
+        margin-top: 0;
+    }
+}

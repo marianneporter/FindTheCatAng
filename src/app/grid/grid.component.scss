@@ -27,6 +27,13 @@
            background-color: white;      
        }
     }
+}
 
+@media screen and (min-width: 500px) {
+    @media screen and (max-height: 400px) {
+        .hiding-grid {
+            margin: 0.25rem auto 0 auto; 
+        }
+    }
 
 }

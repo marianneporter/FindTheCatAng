@@ -2,17 +2,15 @@
     <h4>Best Score</h4>
     <div class="best-attempts">
         <div class="best-monitor">
-            <div class="label">
-                Guesses
-            </div>
+            <div class="label title-showing">Guesses</div>
+            <div class="label title-not-showing">Best number of Guesses</div>
             <div class="info">
                 {{bestScore}}
             </div>
         </div>    
         <div class="best-monitor">
-            <div class="label">
-                Time
-            </div>
+            <div class="label title-showing">Time</div>
+            <div class="label title-not-showing">Best Time</div>
             <div class="info">
                 {{ bestTiming.seconds | number: '2.0' }}:{{ bestTiming.tenths | number: '2.0' }}                
             </div>            

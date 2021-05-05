@@ -7,7 +7,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        height: 2rem;
+        height: 1.75rem;
         width: 45%;        
         background-color: white;
         border-radius: 0.5rem;
@@ -20,7 +20,7 @@
     justify-content: space-evenly;
 
     .btn {
-        height: 2rem;
+        height: 1.75rem;
         width: 45%;   
         border-radius: 0.5rem;         
     } 
@@ -41,7 +41,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 3rem;  
+        height: 2rem;  
+        width: 75%;
+        margin: 0 auto;
     }
 
     .game-monitor-group {
@@ -54,8 +56,5 @@
         width: 45%;      
         align-items: center;
     }
-
-    
-
 }
 

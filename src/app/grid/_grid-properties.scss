@@ -2,18 +2,15 @@
 
     // screens < 575px
     --hiding-place-width: 2.5rem;
-    --hiding-place-margin: 0.1rem;    
-    @media screen and (max-height: 569px) {
-        --hiding-place-height: 2rem;          
-    }
-    @media  screen and (min-height: 570px) {
-        --hiding-place-height: 2.5rem;         
-    } 
+    --hiding-place-margin: 0.1rem;  
+    --hiding-place-height: 2rem;
+    
 
-
-    // screens 576px and larger
-    @media screen and (min-width: 576px) {
-
+   
+    @media screen and (min-width: 500px) {
+        @media screen and (max-height: 400px) {
+            --hiding-place-height: 1.9rem;
+        }
     }
 
 
