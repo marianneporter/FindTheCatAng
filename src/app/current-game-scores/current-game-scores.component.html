@@ -1,6 +1,6 @@
 <div class="game-controls"> 
     <div class="game-monitor-group">
-        <div class="count game-monitor">
+        <div class="game-monitor">
             <div class="label">
                 Guesses
             </div>
@@ -8,7 +8,7 @@
                 {{guessCount}}
             </div>
         </div>
-        <div class="timer game-monitor">
+        <div class="game-monitor">
             <div class="label">
                 Time
             </div>
@@ -17,12 +17,12 @@
             </div>
         </div>
     </div>               
-    <div class="game-monitor-buttons">                   
-        <button class="primary-btn"
+    <div class="game-control-buttons">                   
+        <button class="btn primary-btn"
                 (click)="startGame()"
                 [disabled]="startDisabled">Start</button>
 
-        <button class="reset-btn"
+        <button class="btn reset-btn"
                 (click)="reset()">Reset</button>                 
     </div>
 

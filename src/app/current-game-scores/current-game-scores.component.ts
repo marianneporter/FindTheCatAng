@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Timing } from '../_models/timer';
+import { TimerService } from '../_services/timer.service';
 
 @Component({
   selector: 'app-current-game-scores',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrentGameScoresComponent implements OnInit {
 
-  constructor() { }
+    guessCount: number = 0;
 
-  ngOnInit(): void {
-  }
+    startDisabled: boolean = false;
+    
+    get timing(): Timing {
+        return this.timer.timing;
+    }
+
+    constructor(private timer: TimerService) { }
+
+    ngOnInit(): void {
+    }
+
+    reset() {
+
+    }
+
+    startGame() {
+
+    }
 
 }

@@ -1,0 +1,45 @@
+.hiding-grid {
+    @media screen and (max-width: 575px) {
+        --hiding-place-width: 2.5rem;
+        --hiding-place-margin: 0.1rem;    
+        @media screen and (max-height: 569px) {
+            --hiding-place-height: 2rem;          
+        }
+        @media  screen and (min-height: 570px) {
+            --hiding-place-height: 2.5rem;         
+        } 
+    }
+
+    --hiding-grid-element-width:  calc((var(--hiding-place-width) * 6)
+                                + (var(--hiding-place-margin)* 12));   
+    --hiding-grid-element-height: calc((var(--hiding-place-height) * 6) 
+                                + (var(--hiding-place-margin)* 12));  
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
+ 
+    height: var(--hiding-grid-element-height);
+    width: var(--hiding-grid-element-width);
+
+    margin: 1rem auto 0 auto;
+
+    .hiding-place {
+        height: var(--hiding-place-height); 
+        width: var(--hiding-place-width);
+        background: orange;
+        margin: var(--hiding-place-margin); 
+        background-image: url("../../assets/catsface.jpg");
+        background-size: cover;  
+   
+       .hiding-cover {
+           height: var(--hiding-place-height); 
+           max-height: var(--hiding-place-height);    
+           display: flex;
+           align-items: center;
+           justify-content: center;         
+           background-color: white;      
+       }
+    }
+
+
+}

@@ -1,0 +1,38 @@
+.game-monitor-group {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+
+    .game-monitor {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 2rem;
+        width: 45%;        
+        background-color: white;
+        border-radius: 0.5rem;
+    }
+}
+
+.game-control-buttons {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-evenly;
+
+    .btn {
+        height: 2rem;
+        width: 45%;   
+        border-radius: 0.5rem;         
+    } 
+    
+    .primary-btn {
+        color: white;
+        background-color: #4CBB17;  
+    }
+
+    .reset-btn {
+        color: white;   
+        background-color: #ff4040;
+    }
+}
+
