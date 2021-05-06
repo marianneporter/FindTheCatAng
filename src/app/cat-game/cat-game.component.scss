@@ -1,17 +1,35 @@
-.title-and-controls {
-    margin-top: 2rem;
+.container {
+    height: calc(100vh - 1.6rem);
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-    h2 {
-        color: #ff4040;
-        text-shadow: -2px 0 #feb1b1,
-                      0 2px #feb1b1,
-                      2px 0 #feb1b1, 
-                      0 -2px #feb1b1;   
-    }
+h2 {
+    color: #ff4040;
+    text-shadow: -2px 0 #feb1b1,
+                  0 2px #feb1b1,
+                  2px 0 #feb1b1, 
+                  0 -2px #feb1b1; 
+    font-size: 1.6rem;  
+}
+
+.title-and-controls {
+    margin-top: 5rem; 
 }
 
 @media screen and (min-width: 500px) {
     .title-and-controls {
         margin-top: 0;
+    }
+
+    h2 {
+        margin-bottom: 0.25rem;
+    }
+
+    .container {
+        width: 75%;
+        margin: 0 auto;
     }
 }

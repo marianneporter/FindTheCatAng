@@ -39,9 +39,16 @@ h4 {
         }
         .best-attempts {
             display: flex;
-
+           justify-content: space-evenly;
+           margin-top: 0.2rem;
+         
             .best-monitor {
-                width: 40%;
+                width: 42%;
+                min-height: 100%;
+                padding: 0.2rem;
+                margin: 0;
+
+                font-size: 90%;
     
                 .title-showing {
                     display: none;
