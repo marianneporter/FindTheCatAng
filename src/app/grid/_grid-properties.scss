@@ -8,10 +8,20 @@
 
    
     @media screen and (min-width: 500px) {
+        //landscape phones
         @media screen and (max-height: 400px) {
             --hiding-place-height: 1.9rem;
         }
     }
+
+    //ipads
+    @media screen and (min-width: 768px) {
+        --hiding-place-width: 3.75rem;
+        --hiding-place-height: 3.25rem;
+        font-size: 1.5rem;
+    }
+
+
 
 
 

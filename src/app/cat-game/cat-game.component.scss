@@ -1,5 +1,5 @@
 .container {
-    height: calc(100vh - 1.6rem);
+    height: calc(100vh - 5rem);
     width: auto;
     display: flex;
     flex-direction: column;
@@ -20,16 +20,32 @@ h2 {
 }
 
 @media screen and (min-width: 500px) {
-    .title-and-controls {
-        margin-top: 0;
-    }
+    @media screen and (max-height: 480px) {
+    // landscape phones    
+        .title-and-controls {
+            margin-top: 0;
+        }
+    
+        h2 {
+            margin-bottom: 0.25rem;
+        }
+    
+        .container {
+            width: 75%;
+            margin: 0 auto;
+        }
+     }
+}
 
-    h2 {
-        margin-bottom: 0.25rem;
-    }
-
+@media screen and (min-width: 768px) {
     .container {
         width: 75%;
         margin: 0 auto;
+    }
+
+    h2 {
+        color: white;
+        text-shadow: 0.2rem 0.2rem red;
+        font-size: 2rem;
     }
 }

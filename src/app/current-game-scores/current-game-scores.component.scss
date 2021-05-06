@@ -58,3 +58,40 @@
     }
 }
 
+@media screen and (min-width: 768px) {
+    .game-controls {
+        margin-top: 1rem;
+    } 
+
+    .game-monitor-group {
+        .game-monitor {
+            width: 45%;
+            height: 2.4rem;  
+            font-size: 120%;  
+            font-weight: 50;           
+        }
+    }
+
+
+    .game-control-buttons {
+        .btn {
+            width: 45%;
+            height: 2.5rem; 
+            font-size: 120%;  
+            font-weight: 600;               
+        }   
+        
+        .primary-btn {
+            font-size: 130%;  
+            font-weight: 600;                           
+        }
+
+               
+        .reset-btn {
+            font-size: 110%;  
+            font-weight:500;                           
+        }
+    }
+ 
+}
+
