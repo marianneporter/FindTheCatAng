@@ -68,7 +68,7 @@
             width: 45%;
             height: 2.4rem;  
             font-size: 120%;  
-            font-weight: 50;           
+            font-weight: 500;           
         }
     }
 
@@ -85,7 +85,6 @@
             font-size: 130%;  
             font-weight: 600;                           
         }
-
                
         .reset-btn {
             font-size: 110%;  
@@ -93,5 +92,42 @@
         }
     }
  
+}
+
+@media screen and (min-width: 992px) {
+    .game-controls {
+        margin-top: 1.5rem;
+    } 
+
+    .game-monitor-group {
+        .game-monitor {
+            width: 45%;
+            height: 2.9rem;  
+            font-size: 125%;  
+            font-weight: 500;           
+        }
+    }
+
+
+    .game-control-buttons {
+        .btn {
+            width: 45%;
+            height: 3rem; 
+            font-size: 120%;  
+            font-weight: 600;               
+        }   
+        
+        .primary-btn {
+            font-size: 130%;  
+            font-weight: 600;                           
+        }
+
+               
+        .reset-btn {
+            font-size: 110%;  
+            font-weight:500;                           
+        }
+    }
+    
 }
 

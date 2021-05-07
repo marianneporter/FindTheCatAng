@@ -1,3 +1,5 @@
+
+
 h4 {
     margin-top: 1rem;
     color: #ff4040;
@@ -38,7 +40,7 @@ h4 {
         }
         .best-attempts {
            display: flex;
-           justify-content: space-evenly;
+           justify-content: space-between;
            margin-top: 0.2rem;
          
             .best-monitor {
@@ -60,7 +62,7 @@ h4 {
     }
 }
 
-@media screen and (min-height: 768px) {
+@media screen and (min-width: 768px) {
    h4 {
     color: white;
     text-shadow: 0.2rem 0.2rem red;
@@ -71,11 +73,41 @@ h4 {
        justify-content: center;
 
        .best-monitor {
-        width: 30%;
-        height: 2.5rem;
-        padding: 1rem;
-        font-weight: 500;
-        font-size: 120%;
+           width: 30%;
+           height: 2.5rem;
+           padding: 1rem;
+           font-weight: 500;
+           font-size: 120%;
        }
    }
+}
+
+@media screen and (min-width: 992px) {
+    .best-scores {
+        display: flex;
+        justify-content: center;
+     
+    }
+
+    h4 {
+        margin-left: 4rem;
+        color: white;
+        text-shadow: 0.2rem 0.2rem red;
+        font-size: 1.75rem;
+       } 
+       .best-attempts {
+  
+           margin-top: 0.5rem; 
+           background-color: light-green;
+ 
+           .best-monitor {
+               display: flex;
+               width: 12rem;
+               height: 3rem;
+               padding: 1rem;
+               font-weight: 500;
+               font-size: 120%;
+               margin: 0 2.25rem; 
+           } 
+       }
 }
