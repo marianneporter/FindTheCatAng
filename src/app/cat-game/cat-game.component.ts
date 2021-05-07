@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { GameStatusService } from '../_services/game-status.service';
 
 @Component({
   selector: 'app-cat-game',
@@ -23,9 +24,22 @@ export class CatGameComponent implements OnInit {
 
     headingStatus: string = 'visible';
 
-    constructor() { }
+    constructor(private gameStatusService: GameStatusService) { }
 
     ngOnInit(): void {
+    }
+
+    gridClicked(guessSuccess: boolean) {
+        this.gameStatusService.incrementGuesses();
+        guessSuccess ? this.successfulGuess() : this.wrongGuess();
+    }
+
+    successfulGuess() {
+      
+    }
+
+    wrongGuess() {
+
     }
 
 }

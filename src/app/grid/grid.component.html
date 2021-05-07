@@ -3,7 +3,7 @@
         <div class="hiding-cover"
             (click)="checkGuess(i)" 
             [@revealCat]="hidingPlace[i].revealState"
-            [ngClass]="{'grid-disabled': gridDisabled }">
+            [ngClass]="{'grid-disabled': !gameInProcess }">
             {{hidingPlace[i].value}} 
         </div>            
     </div>     
