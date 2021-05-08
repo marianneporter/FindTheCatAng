@@ -22,24 +22,12 @@ import { GameStatusService } from '../_services/game-status.service';
 })
 export class CatGameComponent implements OnInit {
 
-    headingStatus: string = 'visible';
+    get headingStatus(): string {
+        return this.gameStatus.headingStatus;
+    }
 
-    constructor(private gameStatusService: GameStatusService) { }
+    constructor(private gameStatus: GameStatusService) { }
 
     ngOnInit(): void {
-    }
-
-    gridClicked(guessSuccess: boolean) {
-        this.gameStatusService.incrementGuesses();
-        guessSuccess ? this.successfulGuess() : this.wrongGuess();
-    }
-
-    successfulGuess() {
-      
-    }
-
-    wrongGuess() {
-
-    }
-
+    }    
 }

@@ -1,6 +1,9 @@
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Timing } from '../_models/timer';
+import { DropdownService } from '../_services/dropdown.service';
+import { GameStatusService } from '../_services/game-status.service';
+import { GridService } from '../_services/grid.service';
 import { TimerService } from '../_services/timer.service';
 
 @Component({
@@ -31,22 +34,32 @@ import { TimerService } from '../_services/timer.service';
 })
 export class DropdownComponent implements OnInit {
 
-    dropStatus='hiding';
-    dropdownBestMessage: string = '';
-
-    guessCount: number = 0;
+    get dropStatus() {
+        return this.dropdown.dropStatus;
+    }    
     
     get timing(): Timing {
         return this.timer.timing;
     }
 
-    constructor(private timer: TimerService) { }
+    dropdownBestMessage: string = '';
+
+    guessCount: number = 0;
+
+    constructor(private timer: TimerService,
+                private dropdown: DropdownService,
+                private grid: GridService,
+                private gameStatus: GameStatusService  ) { }
 
     ngOnInit(): void {
     }
 
     playAgain() {
-
+        this.dropdown.dropStatus='hiding'
+        this.gameStatus.showHeading();
+        this.grid.initialiseGrid();
+        this.gameStatus.resetGuesses();
+        this.timer.resetTimer();
     }
 
 }

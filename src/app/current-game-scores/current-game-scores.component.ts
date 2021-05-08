@@ -1,6 +1,8 @@
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Timing } from '../_models/timer';
 import { GameStatusService } from '../_services/game-status.service';
+import { GridService } from '../_services/grid.service';
 import { TimerService } from '../_services/timer.service';
 
 @Component({
@@ -10,10 +12,9 @@ import { TimerService } from '../_services/timer.service';
 })
 export class CurrentGameScoresComponent implements OnInit {
 
-    guessCount: number = 0;
-
     startDisabled: boolean = false;
-    
+
+
     get timing(): Timing {
         return this.timer.timing;
     }
@@ -23,15 +24,17 @@ export class CurrentGameScoresComponent implements OnInit {
     }
 
     constructor(private timer: TimerService,
-                private gameStatus: GameStatusService) { }
+                private gameStatus: GameStatusService,
+                private grid: GridService) { }
 
     ngOnInit(): void {
     }
 
-    reset() {
-        this.guessCount=0;
+    reset() {    
         this.timer.stopTimer();
-        this.timer.resetTimer();    
+        this.timer.resetTimer();   
+        this.gameStatus.resetGuesses(); 
+        this.grid.initialiseGrid();
     }
 
     startGame() {

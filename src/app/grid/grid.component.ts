@@ -1,7 +1,10 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HidingPlace } from '../_models/hidingPlace';
+import { DropdownService } from '../_services/dropdown.service';
 import { GameStatusService } from '../_services/game-status.service';
+import { GridService } from '../_services/grid.service';
+import { TimerService } from '../_services/timer.service';
 
 @Component({
   selector: 'app-grid',
@@ -22,12 +25,11 @@ import { GameStatusService } from '../_services/game-status.service';
         animate('1s ease-in')
       ])               
     ]) 
-]
-
+  ]
 })
 export class GridComponent implements OnInit {
 
-    hidingPlace = new Array<HidingPlace>(36);
+  //  hidingPlace = new Array<HidingPlace>(36);
 
     catLocation: number=0;
 
@@ -35,28 +37,42 @@ export class GridComponent implements OnInit {
         return this.gameStatus.gameInProcess;
     }
 
-    @Output() guessSuccess = new EventEmitter<boolean>();
+    get hidingPlace(): Array<HidingPlace> {
+        return this.grid.hidingPlace;
+    }
+ 
+  //  @Output() guessSuccess = new EventEmitter<boolean>();
 
-    constructor(private gameStatus: GameStatusService) { }
+    constructor(private gameStatus: GameStatusService,
+                private grid: GridService,
+                private timer: TimerService,
+                private dropdown: DropdownService  ) { }
 
-    ngOnInit(): void {
-        
-        for (let i=0; i<36; i++ ) {
-            this.hidingPlace[i] = {
-                value: i+1,
-                revealState: 'hiding'
-            }
-        }
+    ngOnInit(): void {      
+
+        this.grid.initialiseGrid();
 
         this.catLocation=3;
        
     }
 
     checkGuess(guessLoc: number) {
-        //check what the user gguesses
-        //emit true or false to say user has clicked and whthere the click is right or not
-        //https://angular.io/guide/inputs-outputs
-        //next aim get app so it can count guesses
+       
+        if (this.hidingPlace[guessLoc].value == this.catLocation) {
+            this.successfulGuess(guessLoc);
+        } else {
+            this.hidingPlace[guessLoc].value='No!';
+            
+        }      
+    }
+
+    successfulGuess(guessLoc:number) {
+        this.timer.stopTimer();
+        this.gameStatus.incrementGuesses();
+        this.hidingPlace[guessLoc].value='';
+        this.hidingPlace[guessLoc].revealState='revealed';
+        this.dropdown.drop();
+        this.gameStatus.hideHeading();      
     }
 
 }
