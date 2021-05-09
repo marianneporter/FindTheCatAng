@@ -62,15 +62,17 @@ export class GridComponent implements OnInit {
             this.successfulGuess(guessLoc);
         } else {
             this.hidingPlace[guessLoc].value='No!';
-            
+            this.gameStatus.incrementGuesses();
         }      
     }
 
     successfulGuess(guessLoc:number) {
-        this.timer.stopTimer();
+        this.timer.endGame();    
         this.gameStatus.incrementGuesses();
+        this.gameStatus.endGame();
         this.hidingPlace[guessLoc].value='';
         this.hidingPlace[guessLoc].revealState='revealed';
+        
         this.dropdown.drop();
         this.gameStatus.hideHeading();      
     }

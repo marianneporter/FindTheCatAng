@@ -22,12 +22,26 @@ export class TimerService {
 
     timer: any;
 
+    newBestTime: boolean = false;
+
     constructor() { }
 
     startTimer() {
         this.timer = setInterval(() => {
             this.addTenthOfSecond(); 
         }, 100);       
+    }
+
+    endGame() {
+        
+        if ( this.bestTime.totalTimeTenths === 0 ) {
+            this.bestTime = { ...this.timing };  
+        } else if (this.timing.totalTimeTenths < this.bestTime.totalTimeTenths) {
+            this.bestTime = { ...this.timing };
+            this.newBestTime = true;  
+        } 
+
+        this.stopTimer();   
     }
 
  
@@ -52,15 +66,5 @@ export class TimerService {
         this.timing.minutes=0;
         this.timing.seconds=0;
     }
-
-    checkIfBestTime():boolean {
-        if ( this.bestTime.totalTimeTenths === 0
-            || this.timing.totalTimeTenths < this.bestTime.totalTimeTenths) {
-                this.bestTime = { ...this.timing };
-                return true;
-            }
-        return false;
-    }
-
 
 }

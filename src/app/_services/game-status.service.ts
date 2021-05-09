@@ -6,10 +6,12 @@ import { Injectable } from '@angular/core';
 export class GameStatusService {
 
     gameInProcess: boolean = false;
-    guesses: number = 0;  
+    newBestGuess = false;
 
-    headingStatus: string = 'visible';
-    
+    guesses: number = 0; 
+    bestGuesses: number = 0; 
+   
+    headingStatus: string = 'visible';    
    
     constructor() { }
 
@@ -19,6 +21,16 @@ export class GameStatusService {
 
     incrementGuesses() {
         this.guesses++;
+    }
+
+    endGame() {
+        if (this.bestGuesses === 0) {
+            this.bestGuesses = this.guesses;
+        } else if (this.guesses < this.bestGuesses) {
+            this.bestGuesses = this.guesses;
+            this.newBestGuess = true;
+        }
+        this.gameInProcess=false;
     }
 
     resetGuesses() {
