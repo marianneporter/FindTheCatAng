@@ -1,5 +1,4 @@
 .game-monitor-group {
-    margin-top: 1.5rem;
     display: flex;
     justify-content: space-evenly;
 
@@ -15,7 +14,7 @@
 }
 
 .game-control-buttons {
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
     display: flex;
     justify-content: space-evenly;
 
@@ -36,18 +35,19 @@
     }
 }
 
+
+
 @media screen and (min-width: 500px) {
+
     .game-controls {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 2rem;  
- 
+        height: 2rem;   
         margin: 0 auto;
     }
 
     .game-monitor-group {
-        margin: 0;  
         width: 45%;            
     }
 
@@ -58,10 +58,35 @@
     }
 }
 
-@media screen and (min-width: 768px) {
-    .game-controls {
-        margin-top: 1rem;
-    } 
+//big landscape phones
+@media screen and (min-width: 768px) { 
+    @media screen and (max-height: 500px) {
+
+        .game-monitor-group {          
+            .game-monitor {              
+           //     width: 45%;
+                max-height: 1.75rem; 
+         //       font-size: 120%;  
+           //     font-weight: 500;           
+            }
+        }
+    
+        .game-control-buttons {
+            .btn {
+     //           width: 45%;
+                max-height: 1.75rem; 
+            //   font-size: 120%;  
+            //     font-weight: 600;               
+            }   
+ 
+        }     
+    
+    }
+ 
+}
+
+//ipads
+@media screen and (min-width: 768px) { 
 
     .game-monitor-group {
         .game-monitor {
@@ -71,7 +96,6 @@
             font-weight: 500;           
         }
     }
-
 
     .game-control-buttons {
         .btn {
@@ -85,20 +109,16 @@
             font-size: 130%;  
             font-weight: 600;                           
         }
-               
+                
         .reset-btn {
             font-size: 110%;  
             font-weight:500;                           
         }
-    }
- 
+    }  
 }
 
 @media screen and (min-width: 992px) {
-    .game-controls {
-        margin-top: 1.5rem;
-    } 
-
+   
     .game-monitor-group {
         .game-monitor {
             width: 45%;
@@ -107,7 +127,6 @@
             font-weight: 500;           
         }
     }
-
 
     .game-control-buttons {
         .btn {
@@ -121,7 +140,6 @@
             font-size: 130%;  
             font-weight: 600;                           
         }
-
                
         .reset-btn {
             font-size: 110%;  

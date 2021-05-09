@@ -14,11 +14,13 @@
         }
     }
 
-    //ipads
+    
     @media screen and (min-width: 768px) {
-        --hiding-place-width: 3.75rem;
-        --hiding-place-height: 3.25rem;
-        font-size: 1.5rem;
+        @media screen and (min-height: 500px) {
+            --hiding-place-width: 3.75rem;
+            --hiding-place-height: 3.25rem;
+            font-size: 1.5rem;
+        }
     }
 
     @media screen and (min-width: 992px) {

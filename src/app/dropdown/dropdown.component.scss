@@ -1,19 +1,18 @@
 .dropdown {
-    --dropdown-width: 20rem;
-    --dropdown-height: 20%;  
-
+    --dropdown-width: 90%;
+    --dropdown-height: 30%;  
     position: absolute;    
     top: calc(-var(--dropdown-height));
     height: calc(var(--dropdown-height) + 5% );
     width: var(--dropdown-width);
-    left: calc(50vw - (var(--dropdown-width) / 2) - 1rem);
+    left: calc(50vw - (var(--dropdown-width) / 2) );
     border-right: 0.4rem solid white;
     border-left: 0.4rem solid white; 
     background-color:  transparent;
     z-index: 999;  
     
     .dropdown-hanger {
-        height: 33.4%;
+        height: 35%;
         width: var(--dropdown-width);
      
     }
@@ -24,7 +23,7 @@
         justify-content: space-between;
         background-color: #e67e00;
         color: white;
-        height: 66.6%;
+        height: 65%;
         padding: 0.5rem;  
         border-bottom: 0.4rem solid white;
         background-color: darkorange;
@@ -55,7 +54,18 @@
             .label {
                 padding-right: 1rem;
             }              
-        }    
-       
+        } 
+
+        .play-again-btn {
+            width: 33%;
+            height: 2rem;
+            background-color: #4CBB17;  
+            color: white;
+            border-radius: 10%;
+            margin-left: 65%;
+            font-weight: 600;
+            font-size: 105%;
+        }      
     }
 }
+

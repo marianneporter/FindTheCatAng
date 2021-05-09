@@ -8,7 +8,7 @@
     height: var(--hiding-grid-element-height);
     width: var(--hiding-grid-element-width);
 
-    margin: 1rem auto 0 auto;
+    margin: 0 auto;
 
     .hiding-place {
         height: var(--hiding-place-height); 
@@ -33,17 +33,17 @@
     pointer-events: none;
 }
 
-@media screen and (min-width: 500px) {
-    @media screen and (max-height: 400px) {
-        .hiding-grid {
-            margin: 0.25rem auto 0 auto; 
-        }
-    }
-}
+// @media screen and (min-width: 500px) {
+//     @media screen and (max-height: 400px) {
+//         .hiding-grid {
+//             margin: 0.25rem auto 0 auto; 
+//         }
+//     }
+// }
 
-@media screen and (min-width: 992px) {
-    .hiding-grid {
-        margin-top: 1.5rem;
-    }
+// @media screen and (min-width: 992px) {
+//     .hiding-grid {
+//         margin-top: 1.5rem;
+//     }
    
-}
+// }
