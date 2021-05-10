@@ -1,6 +1,6 @@
 .dropdown {
-    --dropdown-width: 90%;
-    --dropdown-height: 30%;  
+    --dropdown-width: 85%;
+    --dropdown-height: 8.25rem;  
     position: absolute;    
     top: calc(-var(--dropdown-height));
     height: calc(var(--dropdown-height) + 5% );
@@ -12,7 +12,7 @@
     z-index: 999;  
     
     .dropdown-hanger {
-        height: 35%;
+        height: 20%;
         width: var(--dropdown-width);
      
     }
@@ -23,13 +23,13 @@
         justify-content: space-between;
         background-color: #e67e00;
         color: white;
-        height: 65%;
+        height: 80%;
         padding: 0.5rem;  
         border-bottom: 0.4rem solid white;
         background-color: darkorange;
 
         .result-heading {
-            font-size: 175%;
+            font-size: 150%;
             color: white;
             text-shadow:  0.25rem 0.25rem 0.5rem  #a00000; 
                  
@@ -38,15 +38,17 @@
         .final-score-line {  
          
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            
-       
+            justify-content: space-between;
+            max-width: 15rem;
+    
             .final-score-element {
-                display: flex;    
-                justify-content: space-around;      
-            }   
-        
+                display: flex;  
+                justify-content: center;
+                gap: 0.1rem;
+                 .label {
+                    padding-right: 0.5rem;
+                }                      
+            }          
         }
 
         .dropdown-line {   
@@ -57,15 +59,64 @@
         } 
 
         .play-again-btn {
-            width: 33%;
-            height: 2rem;
+            width: 8rem;
+            height: 1.75rem;
             background-color: #4CBB17;  
             color: white;
             border-radius: 10%;
-            margin-left: 65%;
+            margin-left: calc(100% - 9rem);
             font-weight: 600;
-            font-size: 105%;
+            margin-top: 0.2rem;
+          
         }      
     }
 }
 
+
+
+@media screen and (min-width: 768px) {
+    @media screen and (min-height: 500px) {
+        .dropdown {
+       
+            .dropdown-result {
+                 font-size: 1.2rem;
+                .play-again-btn {
+                    width: 7rem;
+                    height: 2rem;
+                }   
+                .final-score-line {
+                    max-width: 20rem;
+                }
+            }     
+        }
+    } 
+}
+
+@media screen and (min-width: 992px) {
+    .dropdown {  
+        --dropdown-height: 12rem;        
+        .dropdown-result {
+            font-size: 1.8rem;
+            .play-again-btn {
+                width: 10rem;
+                margin-left: calc(100% - 11rem);
+                height: 2.5rem;
+                font-weight: 550;
+                font-size: 1.25rem;
+            }
+            .final-score-line {
+                max-width: 26rem;
+            }
+        }        
+    }    
+}
+
+@media screen and (min-width: 1200px) {
+    .dropdown {
+        --dropdown-width: 45%;
+
+        .dropdown-result {
+            font-size: 1.5rem;
+        }
+    }
+}

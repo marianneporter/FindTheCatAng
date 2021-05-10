@@ -27,13 +27,14 @@ export class TimerService {
     constructor() { }
 
     startTimer() {
+        this.newBestTime=false;
         this.timer = setInterval(() => {
             this.addTenthOfSecond(); 
         }, 100);       
     }
 
     endGame() {
-        
+    
         if ( this.bestTime.totalTimeTenths === 0 ) {
             this.bestTime = { ...this.timing };  
         } else if (this.timing.totalTimeTenths < this.bestTime.totalTimeTenths) {

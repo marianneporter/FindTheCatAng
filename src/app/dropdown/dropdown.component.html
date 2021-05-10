@@ -7,16 +7,16 @@
         </div>
         <div class="final-score-line dropdown-line">
             <div class="final-score-element">
-                <div class="label">Number of Guesses:</div>
-                <div class="value">{{guessCount}}</div>
+                <span class="label">Guesses:</span>
+                <span class="value">{{guesses}}</span>
             </div>
             <div class="final-score-element">
-                <div class="label">Time Taken (seconds):</div>
-                <div class="value">{{timing.seconds | number: '2.0'}}:{{timing.tenths | number: '2.0' }}</div>
+                <span class="label">Time (seconds):</span>
+                <span class="value">{{timing.seconds | number: '2.0'}}:{{timing.tenths | number: '2.0' }}</span>
             </div>
         </div>
         <div class="play-again-line dropdown-line">
-            <p class="game-status">{{dropdownBestMessage}}</p>
+            <p class="game-status">{{dropMessage}}</p>
             <button class="play-again-btn" (click)="playAgain()">Play Again</button>
         </div>        
     </div> 

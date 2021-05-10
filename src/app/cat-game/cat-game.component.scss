@@ -1,15 +1,11 @@
-.container {
-    height: calc(100vh - 5rem);
-    width: auto; 
-}
-
 .title-and-controls {
-    margin-top: 2rem;;
+    margin-top: 3.5rem;;
 }
 
-.current-game-scores {
-    margin-top: 0.5rem;
-}
+
+ .current-game-scores {
+     margin-top: 0.5rem;
+ }
 
 .hiding-grid {
     margin-top: 0.75rem;
@@ -32,9 +28,9 @@ h2 {
     @media screen and (max-height: 480px) {        
     // landscape phones  
     
-        .title-and-controls {
-            margin-top: 0;
-        }
+       .title-and-controls {
+           margin-top: 0;
+       }
     
         h2 {
             margin-bottom: 0.1rem;
@@ -46,7 +42,7 @@ h2 {
         }
 
         .hiding-grid {
-            margin-top: 0.25rem;
+           margin-top: 0.25rem;
         }
 
         .best-scores {
@@ -61,35 +57,52 @@ h2 {
 }
 
 @media screen and (min-width: 768px) {
-    .container {
-        width: 75%;
-        margin: 0 auto;
+    @media screen and (max-height: 499px) {
+       .title-and-controls {
+           margin-top: 1rem;
+     }
     }
+}
 
-    h2 {
-        color: white;
-        text-shadow: 0.2rem 0.2rem red;
-        font-size: 2rem;
+@media screen and (min-width: 768px) {
+    @media screen and (min-height: 500px) {
+        .container {
+            width: 75%;
+            margin: 0 auto;
+        } 
+
+        .title-and-controls {
+            margin-top: 9rem;
+        }
+    
+        h2 {
+            color: white;
+            text-shadow: 0.2rem 0.2rem red;
+            font-size: 2rem;
+        }
     }
 }
 
 @media screen and (min-width: 992px) {
-    .container {
-        width: 60%;      
+    @media screen  and (min-height: 800px) {
+        .container {
+            width: 60%;      
+        }
+    
+        .title-and-controls {
+            margin-top: 12rem;
+        }
+    
+        .current-game-scores {
+            margin-top: 2rem;
+        }
+    
+        .hiding-grid {
+            margin-top: 1.5rem;
+        }
+    
     }
-
-    .title-and-controls {
-        margin-top: 6rem;
-    }
-
-    .current-game-scores {
-        margin-top: 2rem;
-    }
-
-    .hiding-grid {
-        margin-top: 1.5rem;
-    }
-
+ 
 
 }
 

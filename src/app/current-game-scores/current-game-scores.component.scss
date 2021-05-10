@@ -63,58 +63,56 @@
     @media screen and (max-height: 500px) {
 
         .game-monitor-group {          
-            .game-monitor {              
-           //     width: 45%;
+            .game-monitor {   
                 max-height: 1.75rem; 
-         //       font-size: 120%;  
-           //     font-weight: 500;           
+                .label, .info {
+                    font-size: 1.1rem;
+                }
+            }           
+        }
+    
+        .game-control-buttons {
+            .btn {
+                max-height: 1.75rem; 
+                font-size: 1rem;
+            }    
+        }        
+    } 
+}
+
+//ipads
+@media screen and (min-width: 768px) { 
+    @media screen and (min-height: 501px) {
+        .game-monitor-group {
+            .game-monitor {
+                width: 45%;
+                height: 2.4rem;  
+                font-size: 120%;  
+                font-weight: 500;           
             }
         }
     
         .game-control-buttons {
             .btn {
-     //           width: 45%;
-                max-height: 1.75rem; 
-            //   font-size: 120%;  
-            //     font-weight: 600;               
+                width: 45%;
+                height: 2.5rem; 
+                font-size: 120%;  
+                font-weight: 600;               
             }   
- 
-        }     
-    
-    }
- 
-}
-
-//ipads
-@media screen and (min-width: 768px) { 
-
-    .game-monitor-group {
-        .game-monitor {
-            width: 45%;
-            height: 2.4rem;  
-            font-size: 120%;  
-            font-weight: 500;           
-        }
+            
+            .primary-btn {
+                font-size: 130%;  
+                font-weight: 600;                           
+            }
+                    
+            .reset-btn {
+                font-size: 110%;  
+                font-weight:500;                           
+            }
+        }  
     }
 
-    .game-control-buttons {
-        .btn {
-            width: 45%;
-            height: 2.5rem; 
-            font-size: 120%;  
-            font-weight: 600;               
-        }   
-        
-        .primary-btn {
-            font-size: 130%;  
-            font-weight: 600;                           
-        }
-                
-        .reset-btn {
-            font-size: 110%;  
-            font-weight:500;                           
-        }
-    }  
+   
 }
 
 @media screen and (min-width: 992px) {

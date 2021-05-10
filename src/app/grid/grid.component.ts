@@ -29,8 +29,6 @@ import { TimerService } from '../_services/timer.service';
 })
 export class GridComponent implements OnInit {
 
-  //  hidingPlace = new Array<HidingPlace>(36);
-
     catLocation: number=0;
 
     get gameInProcess(): boolean {
@@ -41,8 +39,6 @@ export class GridComponent implements OnInit {
         return this.grid.hidingPlace;
     }
  
-  //  @Output() guessSuccess = new EventEmitter<boolean>();
-
     constructor(private gameStatus: GameStatusService,
                 private grid: GridService,
                 private timer: TimerService,
@@ -69,12 +65,12 @@ export class GridComponent implements OnInit {
     successfulGuess(guessLoc:number) {
         this.timer.endGame();    
         this.gameStatus.incrementGuesses();
-        this.gameStatus.endGame();
+        this.gameStatus.endGame();        
         this.hidingPlace[guessLoc].value='';
-        this.hidingPlace[guessLoc].revealState='revealed';
-        
-        this.dropdown.drop();
+        this.hidingPlace[guessLoc].revealState='revealed';           
+        this.dropdown.drop(this.gameStatus.newBestGuess, this.timer.newBestTime);
         this.gameStatus.hideHeading();      
     }
+    
 
 }

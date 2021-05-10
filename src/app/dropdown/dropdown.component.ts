@@ -36,10 +36,18 @@ export class DropdownComponent implements OnInit {
 
     get dropStatus() {
         return this.dropdown.dropStatus;
-    }    
+    }  
+ 
+    get dropMessage() {
+        return this.dropdown.dropMessage;
+    }     
     
     get timing(): Timing {
         return this.timer.timing;
+    }
+   
+    get guesses(): number {
+        return this.gameStatus.guesses;
     }
 
     dropdownBestMessage: string = '';
@@ -61,5 +69,4 @@ export class DropdownComponent implements OnInit {
         this.gameStatus.resetGuesses();
         this.timer.resetTimer();
     }
-
 }

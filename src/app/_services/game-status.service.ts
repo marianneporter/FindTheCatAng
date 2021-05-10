@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class GameStatusService {
 
     gameInProcess: boolean = false;
+    firstAttempt = true;
     newBestGuess = false;
 
     guesses: number = 0; 
@@ -16,7 +17,8 @@ export class GameStatusService {
     constructor() { }
 
     startGame() {
-        this.gameInProcess = true;      
+        this.gameInProcess = true;  
+        this.newBestGuess=false;   
     }
 
     incrementGuesses() {
@@ -24,12 +26,14 @@ export class GameStatusService {
     }
 
     endGame() {
+     
         if (this.bestGuesses === 0) {
             this.bestGuesses = this.guesses;
         } else if (this.guesses < this.bestGuesses) {
             this.bestGuesses = this.guesses;
             this.newBestGuess = true;
-        }
+        }      
+
         this.gameInProcess=false;
     }
 

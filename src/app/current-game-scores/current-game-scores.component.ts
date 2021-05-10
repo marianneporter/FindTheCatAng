@@ -31,6 +31,7 @@ export class CurrentGameScoresComponent implements OnInit {
     }
 
     reset() {    
+        debugger;
         this.timer.stopTimer();
         this.timer.resetTimer();   
         this.gameStatus.resetGuesses(); 
