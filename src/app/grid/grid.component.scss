@@ -3,7 +3,7 @@
 .hiding-grid {
  
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-columns: repeat(6, 1fr) ;
  
     height: var(--hiding-grid-element-height);
     width: var(--hiding-grid-element-width);

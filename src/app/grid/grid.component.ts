@@ -1,5 +1,5 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { HidingPlace } from '../_models/hidingPlace';
 import { DropdownService } from '../_services/dropdown.service';
 import { GameStatusService } from '../_services/game-status.service';
@@ -29,10 +29,14 @@ import { TimerService } from '../_services/timer.service';
 })
 export class GridComponent implements OnInit {
 
-    catLocation: number=0;
+  //  catLocation: number=0;
 
     get gameInProcess(): boolean {
         return this.gameStatus.gameInProcess;
+    }
+
+    get catLocation(): number {
+        return this.gameStatus.catLocation;
     }
 
     get hidingPlace(): Array<HidingPlace> {
@@ -48,8 +52,6 @@ export class GridComponent implements OnInit {
 
         this.grid.initialiseGrid();
 
-        this.catLocation=3;
-       
     }
 
     checkGuess(guessLoc: number) {

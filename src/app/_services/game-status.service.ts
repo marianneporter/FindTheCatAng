@@ -9,6 +9,7 @@ export class GameStatusService {
     firstAttempt = true;
     newBestGuess = false;
 
+    catLocation: number = 0;
     guesses: number = 0; 
     bestGuesses: number = 0; 
    
@@ -17,6 +18,8 @@ export class GameStatusService {
     constructor() { }
 
     startGame() {
+        this.catLocation = Math.floor(Math.random() * 36) + 1;
+        console.log(this.catLocation);
         this.gameInProcess = true;  
         this.newBestGuess=false;   
     }
