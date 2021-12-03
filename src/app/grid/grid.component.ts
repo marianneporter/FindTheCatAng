@@ -29,8 +29,6 @@ import { TimerService } from '../_services/timer.service';
 })
 export class GridComponent implements OnInit {
 
-  //  catLocation: number=0;
-
     get gameInProcess(): boolean {
         return this.gameStatus.gameInProcess;
     }

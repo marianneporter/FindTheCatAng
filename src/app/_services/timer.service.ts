@@ -8,14 +8,12 @@ export class TimerService {
 
     timing: Timing = {
         totalTimeTenths: 0,
-        minutes: 0,
         seconds: 0,
         tenths: 0
     }
 
     bestTime: Timing = {
         totalTimeTenths: 0,
-        minutes: 0,
         seconds: 0,
         tenths: 0        
     }
@@ -40,7 +38,7 @@ export class TimerService {
         } else if (this.timing.totalTimeTenths < this.bestTime.totalTimeTenths) {
             this.bestTime = { ...this.timing };
             this.newBestTime = true;  
-        } 
+        }   
 
         this.stopTimer();   
     }
@@ -55,16 +53,13 @@ export class TimerService {
 
         this.timing.tenths=this.timing.totalTimeTenths % 10;
 
-        let wholeSeconds = Math.floor(this.timing.totalTimeTenths/10);
-        this.timing.seconds=wholeSeconds % 60;
-        this.timing.minutes=Math.floor(wholeSeconds/60);
-
+        this.timing.seconds = Math.floor(this.timing.totalTimeTenths/10);
+  
     }
 
     resetTimer() {
         this.timing.totalTimeTenths=0;
         this.timing.tenths=0;
-        this.timing.minutes=0;
         this.timing.seconds=0;
     }
 
