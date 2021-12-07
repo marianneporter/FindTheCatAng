@@ -37,10 +37,10 @@ export class TimerService {
         }, 100);       
     }
 
-    endGame() {        
-        this.completedTime = {...this.timing};
+    endGame() {    
         this.stopTimer();  
-        this.resetTimer();   
+        this.completedTime = {...this.timing};      
+        this.resetTiming();   
         if ( this.bestTime.totalTimeTenths === 0 ) {
             this.bestTime = { ...this.completedTime };  
         } else if (this.completedTime.totalTimeTenths < this.bestTime.totalTimeTenths) {
@@ -50,7 +50,8 @@ export class TimerService {
     }
  
     stopTimer() {
-        clearInterval(this.timer);     
+        clearInterval(this.timer);  
+        this.timer = null;   
     }  
     
     addTenthOfSecond() {
@@ -59,7 +60,7 @@ export class TimerService {
         this.timing.seconds = Math.floor(this.timing.totalTimeTenths/10);  
     }
 
-    resetTimer() {
+    resetTiming() {
         this.timing.totalTimeTenths=0;
         this.timing.tenths=0;
         this.timing.seconds=0;         
@@ -67,7 +68,7 @@ export class TimerService {
 
     resetAllTimers() {
         this.stopTimer();
-        this.resetTimer();
+        this.resetTiming();
         this.bestTime.totalTimeTenths=0;
         this.bestTime.tenths=0;
         this.bestTime.seconds=0;  

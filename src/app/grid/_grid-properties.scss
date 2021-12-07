@@ -3,10 +3,8 @@
     // screens < 575px
     --hiding-place-width: 2.5rem;
     --hiding-place-margin: 0.1rem;  
-    --hiding-place-height: 2rem;
-    
-
-   
+    --hiding-place-height: 2.5rem;
+       
     @media screen and (min-width: 500px) {
         //landscape phones
         @media screen and (max-height: 400px) {
