@@ -41,7 +41,12 @@ export class GameStatusService {
     }
 
     resetGuesses() {
+        this.guesses=0;      
+    }
+
+    resetAllGuesses() {
         this.guesses=0;
+        this.bestGuesses=0;
     }
 
     hideHeading() {

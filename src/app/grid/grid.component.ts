@@ -52,6 +52,7 @@ export class GridComponent implements OnInit {
 
     }
 
+
     checkGuess(guessLoc: number) {
        
         if (this.hidingPlace[guessLoc].value == this.catLocation) {

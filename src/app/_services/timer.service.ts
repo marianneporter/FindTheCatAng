@@ -55,16 +55,26 @@ export class TimerService {
     
     addTenthOfSecond() {
         this.timing.totalTimeTenths++;
-
         this.timing.tenths=this.timing.totalTimeTenths % 10;
-
         this.timing.seconds = Math.floor(this.timing.totalTimeTenths/10);  
     }
 
     resetTimer() {
         this.timing.totalTimeTenths=0;
         this.timing.tenths=0;
-        this.timing.seconds=0;
+        this.timing.seconds=0;         
+    }
+
+    resetAllTimers() {
+        this.stopTimer();
+        this.resetTimer();
+        this.bestTime.totalTimeTenths=0;
+        this.bestTime.tenths=0;
+        this.bestTime.seconds=0;  
+        this.completedTime.totalTimeTenths=0;
+        this.completedTime.tenths=0;
+        this.completedTime.seconds=0;
+        
     }
 
 }
