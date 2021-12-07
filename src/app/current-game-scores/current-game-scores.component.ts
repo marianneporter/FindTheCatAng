@@ -1,4 +1,3 @@
-import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Timing } from '../_models/timer';
 import { GameStatusService } from '../_services/game-status.service';
@@ -39,8 +38,7 @@ export class CurrentGameScoresComponent implements OnInit {
 
     startGame() {
         this.gameStatus.startGame();
-        this.timer.startTimer();
-        
+        this.timer.startTimer();        
     }
 
 }

@@ -43,7 +43,7 @@ export class DropdownComponent implements OnInit {
     }     
     
     get timing(): Timing {
-        return this.timer.timing;
+        return this.timer.completedTime;
     }
    
     get guesses(): number {
@@ -67,6 +67,6 @@ export class DropdownComponent implements OnInit {
         this.gameStatus.showHeading();
         this.grid.initialiseGrid();
         this.gameStatus.resetGuesses();
-        this.timer.resetTimer();
+ //       this.timer.resetTimer();
     }
 }
