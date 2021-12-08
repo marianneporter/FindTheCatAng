@@ -18,8 +18,7 @@ export class GameStatusService {
     constructor() { }
 
     startGame() {
-  //      this.catLocation = Math.floor(Math.random() * 36) + 1;
-        this.catLocation = 7;
+        this.catLocation = Math.floor(Math.random() * 36) + 1; 
         this.gameInProcess = true;  
         this.newBestGuess=false;   
     }

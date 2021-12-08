@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable, interval, Subject } from 'rxjs';
+import { repeatWhen, takeUntil } from 'rxjs/operators';
 import { Timing } from '../_models/timer';
 
 @Injectable({
@@ -12,70 +14,76 @@ export class TimerService {
         tenths: 0
     }
 
-    completedTime: Timing = {
+    latestTiming: Timing = {
         totalTimeTenths: 0,
         seconds: 0,
         tenths: 0
     }   
 
-    bestTime: Timing = {
+    bestTiming: Timing = {
         totalTimeTenths: 0,
         seconds: 0,
         tenths: 0        
     }
 
-    timer: any;
+    timer = new Observable<number>();
+    timerObserver: any;
+    tenthsSeconds$ = interval(100);
+    
+    stop$ = new Subject<void>();
+    start$ = new Subject<void>();   
 
     newBestTime: boolean = false;
+    
 
-    constructor() { }
+    constructor() {
+        this.timer = this.tenthsSeconds$.pipe(           
+            repeatWhen(()=> this.start$),
+            takeUntil(this.stop$)         
+        )  
+
+        this.timerObserver = {
+            next: (n: number) => {
+                this.timing.totalTimeTenths = n;
+                this.timing.tenths=this.timing.totalTimeTenths % 10;
+                this.timing.seconds = Math.floor(this.timing.totalTimeTenths/10);
+            },
+            complete: () => {
+                this.latestTiming = { ...this.timing};
+            }
+        };   
+    }
 
     startTimer() {
         this.newBestTime=false;
-        this.timer = setInterval(() => {
-            this.addTenthOfSecond(); 
-        }, 100);       
+        this.start$.next();  
+        this.timer.subscribe(this.timerObserver);         
     }
 
     endGame() {    
-        this.stopTimer();  
-        this.completedTime = {...this.timing};      
-        this.resetTiming();   
-        if ( this.bestTime.totalTimeTenths === 0 ) {
-            this.bestTime = { ...this.completedTime };  
-        } else if (this.completedTime.totalTimeTenths < this.bestTime.totalTimeTenths) {
-            this.bestTime = { ...this.completedTime };
+        this.stop$.next();  
+        this.resetTiming(); 
+        if ( this.bestTiming.totalTimeTenths === 0 ) {
+            this.bestTiming = { ...this.latestTiming };  
+        } else if (this.latestTiming.totalTimeTenths < this.bestTiming.totalTimeTenths) {
+            this.bestTiming = { ...this.latestTiming };
             this.newBestTime = true;  
-        }         
+        }        
     }
  
     stopTimer() {
-        clearInterval(this.timer);  
-        this.timer = null;   
+        this.stop$.next();
     }  
-    
-    addTenthOfSecond() {
-        this.timing.totalTimeTenths++;
-        this.timing.tenths=this.timing.totalTimeTenths % 10;
-        this.timing.seconds = Math.floor(this.timing.totalTimeTenths/10);  
-    }
-
-    resetTiming() {
-        this.timing.totalTimeTenths=0;
-        this.timing.tenths=0;
-        this.timing.seconds=0;         
-    }
 
     resetAllTimers() {
         this.stopTimer();
         this.resetTiming();
-        this.bestTime.totalTimeTenths=0;
-        this.bestTime.tenths=0;
-        this.bestTime.seconds=0;  
-        this.completedTime.totalTimeTenths=0;
-        this.completedTime.tenths=0;
-        this.completedTime.seconds=0;
-        
+        this.bestTiming={totalTimeTenths: 0, tenths: 0, seconds: 0};
+        this.latestTiming={totalTimeTenths: 0, tenths: 0, seconds: 0};        
+    }
+    
+    resetTiming() {
+        this.timing={totalTimeTenths: 0, tenths: 0, seconds: 0};    
     }
 
 }

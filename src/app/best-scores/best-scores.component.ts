@@ -18,7 +18,7 @@ export class BestScoresComponent implements OnInit {
     }
 
     get bestTiming(): Timing {
-        return this.timer.bestTime;
+        return this.timer.bestTiming;
     }
 
     constructor( private timer: TimerService,

@@ -46,10 +46,8 @@ export class GridComponent implements OnInit {
                 private timer: TimerService,
                 private dropdown: DropdownService  ) { }
 
-    ngOnInit(): void {      
-
+    ngOnInit(): void { 
         this.grid.initialiseGrid();
-
     }
 
 
