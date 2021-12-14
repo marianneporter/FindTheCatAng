@@ -54,8 +54,5 @@ export class GameStatusService {
 
     showHeading() {
         this.headingStatus="visible";
-    }
-    
-
-    
+    }    
 }
