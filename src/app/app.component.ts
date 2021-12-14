@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppStateService } from './_services/app-state.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'FindTheCat';
+    title = 'FindTheCat';
+       
+    get enable(): string {
+        return this.appState.displayWarning ? 'disabled' : 'enabled'; 
+    }
+
+    constructor(private appState: AppStateService) { }
+
 }

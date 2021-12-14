@@ -7,6 +7,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { CurrentGameScoresComponent } from './current-game-scores/current-game-scores.component';
 import { GridComponent } from './grid/grid.component';
 import { BestScoresComponent } from './best-scores/best-scores.component';
+import { DemoWarningComponent } from './demo-warning/demo-warning.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BestScoresComponent } from './best-scores/best-scores.component';
     DropdownComponent,
     CurrentGameScoresComponent,
     GridComponent,
-    BestScoresComponent
+    BestScoresComponent,
+    DemoWarningComponent
   ],
   imports: [
     BrowserModule,
