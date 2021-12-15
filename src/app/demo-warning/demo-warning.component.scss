@@ -7,7 +7,7 @@
     width: 100vw;
     z-index:12;
     background-color: #ff8c00;
-    color: var(--color-primary);   
+    color: blue;   
     padding: 2% 10%; 
     line-height: 2rem;
 
@@ -16,10 +16,24 @@
         font-weight: 600;
     }
 
-    h4 {
-        font-size: 1.25rem;
-        font-weight: 400;
+    .guess-grid {
+        display: flex;
+        gap: 0.25rem;
+        margin-top: 0.5rem;
+        h4 {        
+            font-size: 1.25rem;
+            font-weight: 400;   
+                
+           }
+        .cat-pic {            
+            img {
+                max-width: 3.5rem;
+                border-radius: 25%;
+            }
+        }
     }
+
+
 }   
 
 .button-area {
@@ -27,21 +41,10 @@
 
     button {
         padding: 0.75rem 2rem;
+        background-color: blue;
+        color: white;    
     }
+
+
   
 }
-
-// .warning-text {
-//     margin: 0 auto;
-//     height: auto;
-//     width: auto;
-// }
-
-// h6, button {
-//     display: inline-block;
-// }
-
-// button {
-//     margin-left: 3rem;
-// }
-
