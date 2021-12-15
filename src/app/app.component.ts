@@ -28,8 +28,6 @@ export class AppComponent {
         return this.appState.displayWarning ? 'disabled' : 'enabled'; 
     }
 
-    constructor(private appState: AppStateService) { 
-        console.log('displayWarning is ' + this.appState.displayWarning);
-    }
+    constructor(private appState: AppStateService) { }
 
 }
