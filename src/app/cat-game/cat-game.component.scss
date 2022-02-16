@@ -1,8 +1,6 @@
 .title-and-controls {
     margin-top: 3.5rem;;
 }
-
-
  .current-game-scores {
      margin-top: 0.5rem;
  }
@@ -24,16 +22,16 @@ h2 {
     font-size: 1.6rem;  
 }
 
-@media screen and (min-width: 500px) {
-    @media screen and (max-height: 480px) {        
+@media screen and (min-width: 500px) 
+              and (max-height: 650px) {        
     // landscape phones  
     
        .title-and-controls {
-           margin-top: 0;
+           margin-top: 0.5rem;
        }
     
         h2 {
-            margin-bottom: 0.1rem;
+            margin-bottom: 1rem;
             font-size: 1.4rem;
         }
 
@@ -42,7 +40,7 @@ h2 {
         }
 
         .hiding-grid {
-           margin-top: 0.25rem;
+           margin-top: 1rem;
         }
 
         .best-scores {
@@ -52,23 +50,25 @@ h2 {
         .container {
             width: 75%;
             margin: 0 auto;
+          
         }
-     }
 }
 
-@media screen and (min-width: 768px) {
-    @media screen and (max-height: 499px) {
+
+@media screen and (min-width: 768px) 
+              and (max-height: 499px) {
        .title-and-controls {
            margin-top: 1rem;
-     }
     }
 }
 
-@media screen and (min-width: 768px) {
-    @media screen and (min-height: 500px) {
+
+@media screen and (min-width: 768px) 
+              and (min-height: 650px) {
         .container {
             width: 75%;
             margin: 0 auto;
+          
         } 
 
         .title-and-controls {
@@ -80,11 +80,13 @@ h2 {
             text-shadow: 0.2rem 0.2rem red;
             font-size: 2rem;
         }
-    }
+
+
 }
 
-@media screen and (min-width: 992px) {
-    @media screen  and (min-height: 800px) {
+
+@media screen and (min-width: 992px)
+              and (min-height: 800px) {
         .container {
             width: 60%;      
         }
@@ -100,10 +102,6 @@ h2 {
         .hiding-grid {
             margin-top: 1.5rem;
         }
-    
-    }
- 
-
 }
 
 
