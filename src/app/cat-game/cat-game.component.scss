@@ -1,5 +1,6 @@
+
 .title-and-controls {
-    margin-top: 3.5rem;;
+   margin-top: 1.5rem;;
 }
  .current-game-scores {
      margin-top: 0.5rem;
@@ -31,16 +32,18 @@ h2 {
        }
     
         h2 {
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+            margin-top: 1rem;
+            margin-bottom: 0.4rem;
+            font-size: 1.4rem;  
+         
         }
 
         .current-game-scores {
-            margin-top: 0;
+            margin-top: 0.75rem;
         }
 
         .hiding-grid {
-           margin-top: 1rem;
+           margin-top: 0.75rem;
         }
 
         .best-scores {
@@ -49,8 +52,15 @@ h2 {
     
         .container {
             width: 75%;
-            margin: 0 auto;
-          
+            margin: 0 auto;          
+        }
+
+        @media screen and (min-height: 550px) {
+            h2 {
+                color: white;
+                text-shadow: 0.2rem 0.2rem red;
+                font-size: 2rem;
+            }
         }
 }
 
@@ -72,16 +82,15 @@ h2 {
         } 
 
         .title-and-controls {
-            margin-top: 9rem;
+            margin-top: 6rem;
         }
     
         h2 {
+            margin-bottom: 1rem;
             color: white;
             text-shadow: 0.2rem 0.2rem red;
             font-size: 2rem;
         }
-
-
 }
 
 
@@ -92,7 +101,7 @@ h2 {
         }
     
         .title-and-controls {
-            margin-top: 12rem;
+            margin-top: 8rem;                
         }
     
         .current-game-scores {
@@ -105,7 +114,7 @@ h2 {
 }
 
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1300px) {
     
     .container {
         width: 45%;      
