@@ -1,24 +1,10 @@
-//background for mobiles
-@media screen and (max-width: 768px),
-                  (max-width: 992px) and (orientation: landscape) {
-    .content {
-        background-color: #9FD8FB;
-        min-width: 100vw;   
-        min-height: 100vh;     
-        padding: 0.5rem; 
-    }
-
-    @media screen and (min-height: 350px) {
-        .content {
-            background-color: #9FD8FB;
-            background-size:cover;  
-            overflow: hidden;  
-            position: fixed; 
-        }       
-    }
+.content {
+    background-color: #9FD8FB;
+    min-width: 100vw;   
+    min-height: 100vh;     
+    padding: 0.5rem; 
 }
 
-// background for non-mobile
 @media screen and (min-width: 768px) and (orientation: portrait),
                   (min-width: 992px) and (orientation: landscape) {   
     .content {
