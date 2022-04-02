@@ -26,6 +26,20 @@ h4 {
     }
 }
 
+.reset-btn {
+    margin: 0.5rem auto 0 auto;
+    height: 1.75rem;
+    width: 70%;   
+    border-radius: 0.5rem;        
+    font-weight: 500; 
+    color: white;   
+    background-color: #ff4040;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 @media screen and (min-width: 500px) {    
 
@@ -76,8 +90,13 @@ h4 {
                    font-weight: 500;
                    font-size: 120%;
                }
-        }
-   }
+
+               .reset-btn {
+                   width: 30%;
+                   height: 2.5rem;
+               }
+            }
+    }
 }
 
 @media screen and (min-width: 992px) {
