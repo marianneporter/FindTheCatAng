@@ -30,8 +30,8 @@ export class CurrentGameScoresComponent implements OnInit {
     }
 
     reset() {    
-        this.timer.resetAllTimers(); 
-        this.gameStatus.resetAllGuesses(); 
+        this.timer.resetCurrGameTimer(); 
+        this.gameStatus.resetGuesses(); 
         this.grid.initialiseGrid();
     }
 

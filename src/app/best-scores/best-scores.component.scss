@@ -50,11 +50,11 @@ h4 {
         .best-attempts {
            display: flex;
            justify-content: center;
-           margin-top: 0.2rem; 
-           gap: 0.5rem;       
+           margin: 0.2rem auto; 
+           gap: 0.5rem;  
+           width: 35rem;     
          
             .best-monitor {
-                width: 11rem;             
                 min-height: 100%;
                 padding: 0.2rem;
                 margin: 0;
@@ -68,6 +68,11 @@ h4 {
                     display: block;
                 }
             } 
+
+            .reset-btn {
+                margin: 0;
+                font-size: 1rem;
+            }
         }
     }
 }
@@ -81,10 +86,12 @@ h4 {
            } 
            .best-attempts {
                display: flex;
-               justify-content: center;
+               justify-content: space-between;
+               gap: 1rem;
+        
         
                .best-monitor {
-                   width: 30%;
+                   flex-grow: 1;
                    height: 2.5rem;
                    padding: 1rem;
                    font-weight: 500;
@@ -92,8 +99,10 @@ h4 {
                }
 
                .reset-btn {
-                   width: 30%;
+                   flex-grow: 1;
                    height: 2.5rem;
+                   font-size: 1.1rem;
+                   font-weight: 600;
                }
             }
     }
@@ -103,8 +112,7 @@ h4 {
     .best-scores {
         display: flex;
         justify-content: center;
-     
-    }
+    }  
 
     h4 {
         margin-left: 4rem;
@@ -115,16 +123,20 @@ h4 {
        .best-attempts {
   
            margin-top: 0.5rem; 
-
+           width: 40rem;   
  
            .best-monitor {
-               display: flex;
-               width: 12rem;
+               display: flex;              
                height: 3rem;
                padding: 1rem;
                font-weight: 500;
                font-size: 120%;
-               margin: 0 2.25rem; 
            } 
+
+           .reset-btn {
+               margin-top:0.35rem;
+               height: 3.1rem;
+               padding: 1.5rem 1rem;
+           }
        }
 }

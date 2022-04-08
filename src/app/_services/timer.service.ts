@@ -75,6 +75,11 @@ export class TimerService {
         this.stop$.next();
     }  
 
+    resetCurrGameTimer() {
+        this.stopTimer();
+        this.resetTiming();        
+    }
+
     resetAllTimers() {
         this.stopTimer();
         this.resetTiming();

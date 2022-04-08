@@ -15,9 +15,10 @@
                 {{ bestTiming.seconds | number: '2.0' }}:{{ bestTiming.tenths | number: '2.0' }}                
             </div>            
         </div>  
-        <div class="reset-btn">
+        <button class="reset-btn"
+                (click)="reset()">
             Reset Best Scores
-        </div>  
+        </button>  
 
     </div>  
 </div>  
